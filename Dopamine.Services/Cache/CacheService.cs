@@ -3,7 +3,6 @@ using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
 using Dopamine.Core.IO;
-using Dopamine.Services.Cache;
 using System;
 using System.IO;
 using System.Net;
@@ -18,34 +17,28 @@ namespace Dopamine.Services.Cache
         private string temporaryCacheFolderPath;
         private Timer temporaryCacheCleanupTimer;
         private int temporaryCacheCleanupTimeout = 300000; // 300000 milliseconds = 5 minutes
-    
-        public string CoverArtCacheFolderPath
-        {
-            get
-            {
-                return this.coverArtCacheFolderPath;
-            }
-        }
 
-        public string TemporaryCacheFolderPath
-        {
-            get
-            {
-                return this.temporaryCacheFolderPath;
-            }
-        }
-    
+        public string CoverArtCacheFolderPath => this.coverArtCacheFolderPath;
+
+        public string TemporaryCacheFolderPath => this.temporaryCacheFolderPath;
+
         public CacheService()
-        { 
+        {
             string cacheFolderPath = Path.Combine(SettingsClient.ApplicationFolder(), ApplicationPaths.CacheFolder);
             this.coverArtCacheFolderPath = Path.Combine(SettingsClient.ApplicationFolder(), ApplicationPaths.CacheFolder, ApplicationPaths.CoverArtCacheFolder);
             this.temporaryCacheFolderPath = Path.Combine(SettingsClient.ApplicationFolder(), ApplicationPaths.CacheFolder, ApplicationPaths.TemporaryCacheFolder);
 
             // If it doesn't exist, create the cache folder.
-            if (!Directory.Exists(cacheFolderPath)) Directory.CreateDirectory(cacheFolderPath);
+            if (!Directory.Exists(cacheFolderPath))
+            {
+                Directory.CreateDirectory(cacheFolderPath);
+            }
 
             // If it doesn't exist, create the coverArt cache folder.
-            if (!Directory.Exists(this.coverArtCacheFolderPath)) Directory.CreateDirectory(this.coverArtCacheFolderPath);
+            if (!Directory.Exists(this.coverArtCacheFolderPath))
+            {
+                Directory.CreateDirectory(this.coverArtCacheFolderPath);
+            }
 
             // If it exists, delete the temporary cache folder and create it again (this makes sure it is cleaned from time to time)
             if (Directory.Exists(this.temporaryCacheFolderPath))
@@ -61,7 +54,10 @@ namespace Dopamine.Services.Cache
             }
 
             // If the temporary cache folder doesn't exist, create it.
-            if (!Directory.Exists(this.temporaryCacheFolderPath)) Directory.CreateDirectory(this.temporaryCacheFolderPath);
+            if (!Directory.Exists(this.temporaryCacheFolderPath))
+            {
+                Directory.CreateDirectory(this.temporaryCacheFolderPath);
+            }
 
             temporaryCacheCleanupTimer = new Timer();
             temporaryCacheCleanupTimer.Interval = temporaryCacheCleanupTimeout;
@@ -71,9 +67,9 @@ namespace Dopamine.Services.Cache
 
         private string GetAlbumCacheArtworkId()
         {
-            return "album-" + Guid.NewGuid().ToString(); 
+            return "album-" + Guid.NewGuid().ToString();
         }
-      
+
         public async Task<string> CacheArtworkAsync(byte[] artwork)
         {
             if (artwork == null)
@@ -156,7 +152,10 @@ namespace Dopamine.Services.Cache
                     await Task.Run(() => client.DownloadFile(uri, cachedFilePath));
                 }
 
-                if (!System.IO.File.Exists(cachedFilePath)) cachedFilePath = string.Empty;
+                if (!System.IO.File.Exists(cachedFilePath))
+                {
+                    cachedFilePath = string.Empty;
+                }
 
                 return cachedFilePath;
             }
@@ -166,7 +165,7 @@ namespace Dopamine.Services.Cache
                 return string.Empty;
             }
         }
-      
+
         private void TemporaryCacheCleanupTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             temporaryCacheCleanupTimer.Stop();

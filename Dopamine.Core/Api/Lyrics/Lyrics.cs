@@ -14,24 +14,15 @@
 
         public string Text
         {
-            get { return this.text; }
-            set { this.text = value; }
+            get => this.text;
+            set => this.text = value;
         }
 
-        public string Source
-        {
-            get { return this.source; }
-        }
+        public string Source => this.source;
 
-        public bool HasText
-        {
-            get { return !string.IsNullOrWhiteSpace(this.Text); }
-        }
+        public bool HasText => !string.IsNullOrWhiteSpace(this.Text);
 
-        public bool HasSource
-        {
-            get { return !string.IsNullOrWhiteSpace(this.source); }
-        }
+        public bool HasSource => !string.IsNullOrWhiteSpace(this.source);
 
         public SourceTypeEnum SourceType { get; set; }
 

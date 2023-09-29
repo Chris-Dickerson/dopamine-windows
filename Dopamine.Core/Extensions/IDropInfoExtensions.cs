@@ -20,7 +20,7 @@ namespace Dopamine.Core.Extensions
         {
             DataObject dataObject = dropInfo.Data as DataObject;
             StringCollection directoryNames = dataObject.GetFileDropList();
-            
+
             foreach (string directoryName in directoryNames)
             {
                 if (System.IO.Directory.Exists(directoryName))

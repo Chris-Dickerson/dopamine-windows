@@ -58,7 +58,7 @@ namespace Dopamine.Services.Metadata
             });
 
             // The next time, almost don't wait.
-            this.updateFileMetadataTimer.Interval = this.updateMetadataShortTimeout; 
+            this.updateFileMetadataTimer.Interval = this.updateMetadataShortTimeout;
             this.updateFileMetadataTimer.Start();
         }
 
@@ -155,7 +155,7 @@ namespace Dopamine.Services.Metadata
             }
 
             // The next time, wait longer.
-            this.updateFileMetadataTimer.Interval = this.updateMetadataLongTimeout; 
+            this.updateFileMetadataTimer.Interval = this.updateMetadataLongTimeout;
 
             this.isUpdatingFileMetadata = false;
 

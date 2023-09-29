@@ -3,13 +3,13 @@ using Digimezzo.Foundation.Core.Logging;
 using Digimezzo.Foundation.Core.Packaging;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
+using Dopamine.Core.Extensions;
 using Dopamine.Services.Dialog;
 using Dopamine.Views.FullPlayer.Information;
 using Prism.Commands;
+using Prism.Ioc;
 using Prism.Mvvm;
 using System;
-using Prism.Ioc;
-using Dopamine.Core.Extensions;
 
 namespace Dopamine.ViewModels.FullPlayer.Information
 {

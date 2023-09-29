@@ -34,53 +34,54 @@ namespace Dopamine.Services.Entities
 
         public string Path
         {
-            get { return this.path; }
-            set { SetProperty<string>(ref this.path, value); }
+            get => this.path;
+            set => SetProperty<string>(ref this.path, value);
         }
 
         public string PlaylistName
         {
-            get { return this.playlistName; }
-            set { SetProperty<string>(ref this.playlistName, value); }
+            get => this.playlistName;
+            set => SetProperty<string>(ref this.playlistName, value);
         }
 
         public PlaylistType Type
         {
-            get { return this.type; }
-            set { SetProperty<PlaylistType>(ref this.type, value); }
+            get => this.type;
+            set => SetProperty<PlaylistType>(ref this.type, value);
         }
 
         public bool MatchAnyRule
         {
-            get { return this.matchAnyRule; }
-            set { SetProperty<bool>(ref this.matchAnyRule, value); }
+            get => this.matchAnyRule;
+            set => SetProperty<bool>(ref this.matchAnyRule, value);
         }
 
         public SmartPlaylistLimitViewModel Limit
         {
-            get { return this.limit; }
-            set { SetProperty<SmartPlaylistLimitViewModel>(ref this.limit, value); }
+            get => this.limit;
+            set => SetProperty<SmartPlaylistLimitViewModel>(ref this.limit, value);
         }
 
         public ObservableCollection<SmartPlaylistTypeViewModel> LimitTypes
         {
-            get { return this.limitTypes; }
-            set { SetProperty<ObservableCollection<SmartPlaylistTypeViewModel>>(ref this.limitTypes, value); }
+            get => this.limitTypes;
+            set => SetProperty<ObservableCollection<SmartPlaylistTypeViewModel>>(ref this.limitTypes, value);
         }
 
         public ObservableCollection<SmartPlaylistRuleViewModel> Rules
         {
-            get { return this.rules; }
-            set { SetProperty<ObservableCollection<SmartPlaylistRuleViewModel>>(ref this.rules, value); }
+            get => this.rules;
+            set => SetProperty<ObservableCollection<SmartPlaylistRuleViewModel>>(ref this.rules, value);
         }
 
         public SmartPlaylistTypeViewModel SelectedLimitType
         {
-            get { return this.selectedLimitType; }
-            set {
+            get => this.selectedLimitType;
+            set
+            {
                 SetProperty<SmartPlaylistTypeViewModel>(ref this.selectedLimitType, value);
-                
-                if(this.limit != null)
+
+                if (this.limit != null)
                 {
                     this.limit.Type = value.Type;
                 }

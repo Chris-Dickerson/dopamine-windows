@@ -10,12 +10,12 @@ namespace Dopamine.Services.Dialog
     public class DialogService : IDialogService
     {
         private List<Windows10BorderlessWindow> openDialogs;
-     
+
         public DialogService()
         {
             this.openDialogs = new List<Windows10BorderlessWindow>();
         }
- 
+
         private void ShowDialog(Windows10BorderlessWindow win)
         {
             foreach (Windows10BorderlessWindow dlg in this.openDialogs)
@@ -35,7 +35,7 @@ namespace Dopamine.Services.Dialog
                 dlg.IsOverlayVisible = false;
             }
         }
-     
+
         public bool ShowConfirmation(int iconCharCode, int iconSize, string title, string content, string okText, string cancelText)
         {
             bool returnValue = false;
@@ -87,7 +87,7 @@ namespace Dopamine.Services.Dialog
                     dialog = new CustomDialog(icon: (UserControl)icon, title: title, content: content, width: width, height: height, canResize: canResize, autoSize: autoSize, showTitle: showTitle, showCancelButton: showCancelButton, okText: okText, cancelText: cancelText, callback: callback);
                 }
 
-                if(dialog != null)
+                if (dialog != null)
                 {
                     this.ShowDialog(dialog);
 
@@ -141,7 +141,7 @@ namespace Dopamine.Services.Dialog
 
                 if (dialog.DialogResult.HasValue & dialog.DialogResult.Value)
                 {
-                    localResponseText = ((InputDialog)dialog).ResponseText;
+                    localResponseText = dialog.ResponseText;
                     returnValue = true;
                 }
                 else
@@ -154,7 +154,7 @@ namespace Dopamine.Services.Dialog
 
             return returnValue;
         }
-     
+
         public event Action<bool> DialogVisibleChanged = delegate { };
     }
 }

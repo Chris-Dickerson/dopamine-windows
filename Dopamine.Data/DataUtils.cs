@@ -69,6 +69,6 @@ namespace Dopamine.Data
             }
 
             return TrimColumnValue(columnMultiValue);
-        } 
+        }
     }
 }

@@ -84,7 +84,10 @@ namespace Dopamine.Services.Utils
 
         public static async Task ScrollToPlayingTrackAsync(ListBox box)
         {
-            if (box == null) return;
+            if (box == null)
+            {
+                return;
+            }
 
             Object itemObject = null;
 
@@ -124,7 +127,10 @@ namespace Dopamine.Services.Utils
 
         public static async Task ScrollToPlayingTrackAsync(DataGrid grid)
         {
-            if (grid == null) return;
+            if (grid == null)
+            {
+                return;
+            }
 
             Object itemObject = null;
 
@@ -147,7 +153,10 @@ namespace Dopamine.Services.Utils
                 }
             });
 
-            if (itemObject == null) return;
+            if (itemObject == null)
+            {
+                return;
+            }
 
             try
             {
@@ -187,7 +196,10 @@ namespace Dopamine.Services.Utils
                 }
             });
 
-            if (itemObject == null) return;
+            if (itemObject == null)
+            {
+                return;
+            }
 
             try
             {

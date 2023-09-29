@@ -11,7 +11,7 @@ namespace Dopamine.Tests
         {
             // Arrange
             string playlistPath = System.IO.Path.GetFullPath(@"Files\PlaylistDecoder\Test.m3u");
-           
+
             // Act
             var decoder = new PlaylistDecoder();
             DecodePlaylistResult result = decoder.DecodePlaylist(playlistPath);
@@ -61,7 +61,7 @@ namespace Dopamine.Tests
         {
             // Arrange
             string playlistPath = System.IO.Path.GetFullPath(@"Files\PlaylistDecoder\Test.zpl");
-        
+
             // Act
             var decoder = new PlaylistDecoder();
             DecodePlaylistResult result = decoder.DecodePlaylist(playlistPath);
@@ -86,7 +86,7 @@ namespace Dopamine.Tests
         {
             // Arrange
             string playlistPath = System.IO.Path.GetFullPath(@"Files\PlaylistDecoder\Test.wpl");
-          
+
             // Act
             var decoder = new PlaylistDecoder();
             DecodePlaylistResult result = decoder.DecodePlaylist(playlistPath);

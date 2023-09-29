@@ -3,14 +3,12 @@ using Digimezzo.Foundation.Core.Settings;
 using Dopamine.Core.Base;
 using Dopamine.Core.Extensions;
 using Dopamine.Core.IO;
-using Dopamine.Core.Utils;
 using Dopamine.Data;
 using Dopamine.Data.Entities;
 using Dopamine.Data.Metadata;
 using Dopamine.Data.Repositories;
 using Dopamine.Services.Cache;
 using Dopamine.Services.InfoDownload;
-using Dopamine.Services.Utils;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -58,10 +56,7 @@ namespace Dopamine.Services.Indexing
         public event EventHandler RefreshArtwork = delegate { };
         public event AlbumArtworkAddedEventHandler AlbumArtworkAdded = delegate { };
 
-        public bool IsIndexing
-        {
-            get { return this.isIndexing; }
-        }
+        public bool IsIndexing => this.isIndexing;
 
         public IndexingService(ISQLiteConnectionFactory factory, ICacheService cacheService, IInfoDownloadService infoDownloadService,
             ITrackRepository trackRepository, IFolderRepository folderRepository, IAlbumArtworkRepository albumArtworkRepository)
@@ -259,7 +254,7 @@ namespace Dopamine.Services.Indexing
 
                         foreach (TrackStatistic trackStatistic in trackStatistics)
                         {
-                            conn.Execute("UPDATE Track SET Rating=?, Love=?, PlayCount=?, SkipCount=?, DateLastPlayed=? WHERE Safepath=?;", 
+                            conn.Execute("UPDATE Track SET Rating=?, Love=?, PlayCount=?, SkipCount=?, DateLastPlayed=? WHERE Safepath=?;",
                                 trackStatistic.Rating, trackStatistic.Love, trackStatistic.PlayCount, trackStatistic.SkipCount, trackStatistic.DateLastPlayed, trackStatistic.SafePath);
                         }
 

@@ -4,15 +4,15 @@ using Dopamine.Core.Base;
 using Dopamine.Core.Utils;
 using Dopamine.Data.Metadata;
 using Dopamine.Data.Metadata;
-using Dopamine.Utils;
 using Dopamine.Services.Cache;
+using Dopamine.Services.InfoDownload;
+using Dopamine.Utils;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using System.Collections.Generic;
-using Dopamine.Services.InfoDownload;
 
 namespace Dopamine.ViewModels.Common.Base
 {
@@ -121,7 +121,7 @@ namespace Dopamine.ViewModels.Common.Base
             {
                 string artworkUriString = await this.infoDownloadService.GetAlbumImageAsync(title, artists, alternateTitle, alternateArtists);
 
-                if(!string.IsNullOrEmpty(artworkUriString))
+                if (!string.IsNullOrEmpty(artworkUriString))
                 {
                     string temporaryFile = await this.cacheService.DownloadFileToTemporaryCacheAsync(artworkUriString);
                     this.UpdateArtwork(ImageUtils.Image2ByteArray(temporaryFile, 0, 0));

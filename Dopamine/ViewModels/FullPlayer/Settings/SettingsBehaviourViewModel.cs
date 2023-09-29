@@ -125,11 +125,11 @@ namespace Dopamine.ViewModels.FullPlayer.Settings
             get { return this.selectedScrollVolumePercentage; }
             set
             {
-                if(value != null)
+                if (value != null)
                 {
                     SettingsClient.Set<int>("Behaviour", "ScrollVolumePercentage", value.Value);
                 }
-                
+
                 SetProperty<NameValue>(ref this.selectedScrollVolumePercentage, value);
             }
         }

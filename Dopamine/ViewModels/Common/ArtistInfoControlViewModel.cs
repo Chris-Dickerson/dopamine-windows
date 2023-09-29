@@ -146,7 +146,7 @@ namespace Dopamine.ViewModels.Common
                         await localArtistInfoViewModel.SetArtistInformation(lfmArtist, artistImageUrl);
                         this.ArtistInfoViewModel = localArtistInfoViewModel;
 
-                       
+
                     }
                     else
                     {

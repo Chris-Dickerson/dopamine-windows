@@ -6,6 +6,6 @@ namespace Dopamine.Services.Playback
     {
         public bool IsPlayingPreviousTrack { get; set; }
 
-        public bool IsSilent{ get; set; }
-}
+        public bool IsSilent { get; set; }
+    }
 }

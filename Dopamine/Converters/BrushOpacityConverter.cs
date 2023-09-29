@@ -10,14 +10,14 @@ namespace Dopamine.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null || !(value is SolidColorBrush) || parameter == null)
-            {   
+            {
                 return Binding.DoNothing;
             }
 
             SolidColorBrush opacityBrush = new SolidColorBrush(((SolidColorBrush)value).Color);
             double opacity = 1.0;
 
-            if (double.TryParse(parameter.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture,  out opacity))
+            if (double.TryParse(parameter.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture, out opacity))
             {
                 opacityBrush.Opacity = opacity;
             }

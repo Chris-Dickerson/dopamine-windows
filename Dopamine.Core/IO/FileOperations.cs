@@ -1,5 +1,5 @@
-﻿using Digimezzo.Foundation.Core.Utils;
-using Digimezzo.Foundation.Core.Logging;
+﻿using Digimezzo.Foundation.Core.Logging;
+using Digimezzo.Foundation.Core.Utils;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;

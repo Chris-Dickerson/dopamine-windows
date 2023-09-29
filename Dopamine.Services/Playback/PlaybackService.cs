@@ -10,7 +10,6 @@ using Dopamine.Data.Entities;
 using Dopamine.Data.Metadata;
 using Dopamine.Data.Repositories;
 using Dopamine.Services.Blacklist;
-using Dopamine.Services.Collection;
 using Dopamine.Services.Entities;
 using Dopamine.Services.Equalizer;
 using Dopamine.Services.Extensions;
@@ -127,13 +126,13 @@ namespace Dopamine.Services.Playback
 
         public double Progress
         {
-            get { return this.progress; }
-            set { this.progress = value; }
+            get => this.progress;
+            set => this.progress = value;
         }
 
         public float Volume
         {
-            get { return this.volume; }
+            get => this.volume;
 
             set
             {
@@ -149,7 +148,10 @@ namespace Dopamine.Services.Playback
 
                 this.volume = value;
 
-                if (this.player != null && !this.mute) this.player.SetVolume(value);
+                if (this.player != null && !this.mute)
+                {
+                    this.player.SetVolume(value);
+                }
 
                 SettingsClient.Set<double>("Playback", "Volume", Math.Round(value, 2));
                 this.PlaybackVolumeChanged(this, new PlaybackVolumeChangedEventArgs(isLoadingSettings));
@@ -158,7 +160,7 @@ namespace Dopamine.Services.Playback
 
         public LoopMode LoopMode
         {
-            get { return this.loopMode; }
+            get => this.loopMode;
             set
             {
                 this.loopMode = value;
@@ -166,15 +168,9 @@ namespace Dopamine.Services.Playback
             }
         }
 
-        public bool Shuffle
-        {
-            get { return this.shuffle; }
-        }
+        public bool Shuffle => this.shuffle;
 
-        public bool Mute
-        {
-            get { return this.mute; }
-        }
+        public bool Mute => this.mute;
 
         public async Task SetShuffleAsync(bool isShuffled)
         {
@@ -271,10 +267,7 @@ namespace Dopamine.Services.Playback
             }
         }
 
-        public IPlayer Player
-        {
-            get { return this.player; }
-        }
+        public IPlayer Player => this.player;
 
         public PlaybackService(IFileService fileService, II18nService i18nService, ITrackRepository trackRepository, IBlacklistService blacklistService,
             IEqualizerService equalizerService, IQueuedTrackRepository queuedTrackRepository, IContainerProvider container, IPlaylistService playlistService)
@@ -379,10 +372,7 @@ namespace Dopamine.Services.Playback
 
             await Task.Run(() =>
             {
-                if (this.player != null)
-                {
-                    this.player.SwitchAudioDevice(this.audioDevice);
-                }
+                this.player?.SwitchAudioDevice(this.audioDevice);
             });
         }
 
@@ -442,10 +432,7 @@ namespace Dopamine.Services.Playback
             this.desiredPreset = await this.equalizerService.GetSelectedPresetAsync();
             this.activePreset = isEnabled ? this.desiredPreset : new EqualizerPreset();
 
-            if (this.player != null)
-            {
-                this.player.ApplyFilter(this.activePreset.Bands);
-            }
+            this.player?.ApplyFilter(this.activePreset.Bands);
         }
 
         public void ApplyPreset(EqualizerPreset preset)
@@ -456,10 +443,7 @@ namespace Dopamine.Services.Playback
             {
                 this.activePreset = desiredPreset;
 
-                if (this.player != null)
-                {
-                    this.player.ApplyFilter(this.activePreset.Bands);
-                }
+                this.player?.ApplyFilter(this.activePreset.Bands);
             }
         }
 
@@ -586,10 +570,7 @@ namespace Dopamine.Services.Playback
         {
             this.mute = mute;
 
-            if (this.player != null)
-            {
-                this.player.SetVolume(mute ? 0.0f : this.Volume);
-            }
+            this.player?.SetVolume(mute ? 0.0f : this.Volume);
 
             SettingsClient.Set<bool>("Playback", "Mute", this.mute);
             this.PlaybackMuteChanged(this, new EventArgs());
@@ -836,7 +817,9 @@ namespace Dopamine.Services.Playback
             {
                 result = (await this.AddToQueueAsync(tracks)).IsSuccess;
                 if (result)
+                {
                     await this.PlayNextAsync();
+                }
             }
 
             return result;
@@ -1045,7 +1028,8 @@ namespace Dopamine.Services.Playback
                 {
                     await this.TryPlayNextAsync(false);
                 }
-                else { 
+                else
+                {
                     await this.TryPlayAsync(firstTrack);
                 }
             }
@@ -1156,10 +1140,7 @@ namespace Dopamine.Services.Playback
             {
                 try
                 {
-                    if (this.player != null)
-                    {
-                        this.player.Stop();
-                    }
+                    this.player?.Stop();
                 }
                 catch (Exception)
                 {

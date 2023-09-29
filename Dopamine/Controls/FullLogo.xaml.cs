@@ -14,7 +14,7 @@ namespace Dopamine.Controls
             set { SetValue(AccentProperty, value); }
         }
 
-        public static readonly DependencyProperty AccentProperty = 
+        public static readonly DependencyProperty AccentProperty =
             DependencyProperty.Register(nameof(Accent), typeof(Brush), typeof(FullLogo), new PropertyMetadata(null));
 
         public string ApplicationName

@@ -21,7 +21,7 @@ namespace Dopamine.Services.Metadata
         Task<FileMetadata> GetFileMetadataAsync(string path);
 
         Task<byte[]> GetArtworkAsync(string path, int size = 0);
-        
+
         Task ForceSaveFileMetadataAsync();
 
         event Action<MetadataChangedEventArgs> MetadataChanged;

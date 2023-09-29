@@ -7,7 +7,7 @@ namespace Dopamine.ViewModels.Common
     {
         private string searchText;
         private ISearchService searchService;
-      
+
         public string SearchText
         {
             get { return this.searchText; }
@@ -17,7 +17,7 @@ namespace Dopamine.ViewModels.Common
                 this.searchService.SearchText = value;
             }
         }
-      
+
         public SearchControlViewModel(ISearchService searchService)
         {
             this.searchService = searchService;
@@ -26,7 +26,7 @@ namespace Dopamine.ViewModels.Common
 
             this.UpdateSearchText();
         }
-   
+
         private void UpdateSearchText()
         {
             this.searchText = this.searchService.SearchText;

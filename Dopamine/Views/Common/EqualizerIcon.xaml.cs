@@ -10,9 +10,9 @@ namespace Dopamine.Views.Common
             get { return (bool)GetValue(IsDialogIconProperty); }
             set { SetValue(IsDialogIconProperty, value); }
         }
-   
+
         public static readonly DependencyProperty IsDialogIconProperty = DependencyProperty.Register("IsDialogIcon", typeof(bool), typeof(EqualizerIcon), new PropertyMetadata(false));
-     
+
         public EqualizerIcon()
         {
             InitializeComponent();

@@ -1,12 +1,12 @@
 ﻿using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.WPF.Controls;
-using Dopamine.ViewModels.Common.Base;
 using Dopamine.Core.Enums;
 using Dopamine.Core.Prism;
+using Dopamine.ViewModels.Common.Base;
 using Prism.Commands;
 using Prism.Events;
-using System;
 using Prism.Ioc;
+using System;
 
 namespace Dopamine.ViewModels.Common
 {

@@ -12,7 +12,7 @@ namespace Dopamine.Views.Common
             set { SetValue(ShowControlsProperty, value); }
         }
 
-        public static readonly DependencyProperty ShowControlsProperty = 
+        public static readonly DependencyProperty ShowControlsProperty =
             DependencyProperty.Register(nameof(ShowControls), typeof(bool), typeof(CollectionFoldersSettings), new PropertyMetadata(null));
 
         public CollectionFoldersSettings()

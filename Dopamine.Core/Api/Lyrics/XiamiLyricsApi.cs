@@ -35,7 +35,10 @@ namespace Dopamine.Core.Api.Lyrics
         private async Task<string> ParseTrackIdAsync(string artist, string title)
         {
             _httpClient = new HttpClient(new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip });
-            if (this.timeoutSeconds > 0) _httpClient.Timeout = TimeSpan.FromSeconds(this.timeoutSeconds);
+            if (this.timeoutSeconds > 0)
+            {
+                _httpClient.Timeout = TimeSpan.FromSeconds(this.timeoutSeconds);
+            }
             // Must set proper headers, otherwise the response will be "Illegal request"
             _httpClient.DefaultRequestHeaders.Add("Accept", "*/*");
             _httpClient.DefaultRequestHeaders.Add("Accept-Encoding", "gzip,deflate,sdch");
@@ -71,7 +74,9 @@ namespace Dopamine.Core.Api.Lyrics
                 // Some tracks' title that API returns may contain useless blank character
                 var length = title.Length < resultTitle.Length ? title.Length : resultTitle.Length;
                 if (!title.Substring(0, length).Equals(resultTitle.Substring(0, length)))
+                {
                     result = string.Empty;
+                }
             }
 
             return result;
@@ -121,7 +126,11 @@ namespace Dopamine.Core.Api.Lyrics
         public async Task<string> GetLyricsAsync(string artist, string title)
         {
             var trackId = await ParseTrackIdAsync(artist, title).ConfigureAwait(false);
-            if (trackId.Equals(string.Empty)) throw new Exception("No Xiami Lyrics.");
+            if (trackId.Equals(string.Empty))
+            {
+                throw new Exception("No Xiami Lyrics.");
+            }
+
             return await ParseLyricsAsync(trackId).ConfigureAwait(false);
         }
 

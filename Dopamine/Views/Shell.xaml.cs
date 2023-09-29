@@ -494,12 +494,12 @@ namespace Dopamine.Views
                 if (e.OriginalSource is TextBox || e.OriginalSource is PasswordBox)
                 {
                     // Don't interfere with typing in a TextBox or PasswordBox
-                    return; 
+                    return;
                 }
 
                 if (e.Key == Key.OemPlus | e.Key == Key.Add)
                 {
-                   
+
                     this.playbackService.Volume = Convert.ToSingle(this.playbackService.Volume + 0.05);
                 }
                 else if (e.Key == Key.OemMinus | e.Key == Key.Subtract)

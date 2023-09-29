@@ -8,14 +8,11 @@ namespace Dopamine.Data.Metadata
         private bool isValueChanged;
 
 
-        public bool IsValueChanged
-        {
-            get { return this.isValueChanged; }
-        }
-  
+        public bool IsValueChanged => this.isValueChanged;
+
         public int Value
         {
-            get { return this.value; }
+            get => this.value;
 
             set
             {

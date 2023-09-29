@@ -1,14 +1,14 @@
-﻿using Dopamine.Views.Common.Base;
-using System.Windows;
-using System.Windows.Input;
-using System;
-using Digimezzo.Foundation.Core.Logging;
-using System.Windows.Controls;
+﻿using Digimezzo.Foundation.Core.Logging;
 using Digimezzo.Foundation.WPF.Controls;
-using System.Windows.Media;
-using Dopamine.Services.Entities;
 using Dopamine.Core.Prism;
+using Dopamine.Services.Entities;
+using Dopamine.Views.Common.Base;
 using Prism.Commands;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Dopamine.Views.FullPlayer.Collection
 {

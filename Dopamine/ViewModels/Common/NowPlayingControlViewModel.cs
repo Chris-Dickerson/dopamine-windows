@@ -53,7 +53,7 @@ namespace Dopamine.ViewModels.Common
         protected async override Task LoadedCommandAsync()
         {
             // Wait for the UI to slide in
-            await Task.Delay(Constants.NowPlayingListLoadDelay);  
+            await Task.Delay(Constants.NowPlayingListLoadDelay);
 
             // If there is a queue, get the tracks.
             if (this.playbackService.HasQueue)

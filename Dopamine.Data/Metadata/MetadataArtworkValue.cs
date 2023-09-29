@@ -6,15 +6,12 @@ namespace Dopamine.Data.Metadata
     {
         private byte[] value;
         private bool isValueChanged;
-  
-        public bool IsValueChanged
-        {
-            get { return this.isValueChanged; }
-        }
-   
+
+        public bool IsValueChanged => this.isValueChanged;
+
         public byte[] Value
         {
-            get { return this.value; }
+            get => this.value;
             set
             {
                 this.value = value;
@@ -22,7 +19,7 @@ namespace Dopamine.Data.Metadata
                 this.OnPropertiesChanged();
             }
         }
- 
+
         public MetadataArtworkValue()
         {
         }
@@ -32,7 +29,7 @@ namespace Dopamine.Data.Metadata
             this.value = value;
             this.OnPropertiesChanged();
         }
-  
+
         private void OnPropertiesChanged()
         {
             RaisePropertyChanged(nameof(this.Value));

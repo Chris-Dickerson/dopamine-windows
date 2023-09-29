@@ -16,12 +16,9 @@ namespace Dopamine.Data
                 this.version = version;
             }
 
-            public int Version
-            {
-                get { return this.version; }
-            }
+            public int Version => this.version;
         }
-      
+
         // NOTE: whenever there is a change in the database schema,
         // this version MUST be incremented and a migration method
         // MUST be supplied to match the new version number
@@ -401,7 +398,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-       
+
         [DatabaseVersion(4)]
         private void Migrate4()
         {
@@ -538,7 +535,7 @@ namespace Dopamine.Data
                 conn.Execute("CREATE INDEX GenresIndex ON Genres(GenreName);");
             }
         }
-      
+
         [DatabaseVersion(5)]
         private void Migrate5()
         {
@@ -548,7 +545,7 @@ namespace Dopamine.Data
                 conn.Execute("CREATE INDEX IF NOT EXISTS AlbumsYearIndex ON Albums(Year);");
             }
         }
-   
+
         [DatabaseVersion(6)]
         private void Migrate6()
         {
@@ -560,7 +557,7 @@ namespace Dopamine.Data
                 conn.Execute("CREATE INDEX IF NOT EXISTS TracksFolderIDIndex ON Tracks(FolderID);");
             }
         }
-    
+
         [DatabaseVersion(7)]
         private void Migrate7()
         {
@@ -570,7 +567,7 @@ namespace Dopamine.Data
                 conn.Execute("UPDATE Folders SET ShowInCollection=1;");
             }
         }
-     
+
         [DatabaseVersion(8)]
         private void Migrate8()
         {
@@ -583,7 +580,7 @@ namespace Dopamine.Data
                              "PRIMARY KEY(QueuedTrackID));");
             }
         }
-       
+
         [DatabaseVersion(9)]
         private void Migrate9()
         {
@@ -596,7 +593,7 @@ namespace Dopamine.Data
                              "PRIMARY KEY(IndexingStatisticID));");
             }
         }
-     
+
         [DatabaseVersion(10)]
         private void Migrate10()
         {
@@ -628,7 +625,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-   
+
         [DatabaseVersion(11)]
         private void Migrate11()
         {
@@ -672,7 +669,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-   
+
         [DatabaseVersion(12)]
         private void Migrate12()
         {
@@ -698,7 +695,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-       
+
         [DatabaseVersion(13)]
         private void Migrate13()
         {
@@ -713,7 +710,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-   
+
         [DatabaseVersion(14)]
         private void Migrate14()
         {
@@ -728,7 +725,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-   
+
         [DatabaseVersion(15)]
         private void Migrate15()
         {
@@ -745,7 +742,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-  
+
         [DatabaseVersion(16)]
         private void Migrate16()
         {
@@ -886,7 +883,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
- 
+
         [DatabaseVersion(17)]
         private void Migrate17()
         {
@@ -901,7 +898,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-       
+
         [DatabaseVersion(18)]
         private void Migrate18()
         {
@@ -916,7 +913,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-   
+
         [DatabaseVersion(19)]
         private void Migrate19()
         {
@@ -932,7 +929,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-       
+
         [DatabaseVersion(20)]
         private void Migrate20()
         {
@@ -948,7 +945,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-    
+
         [DatabaseVersion(21)]
         private void Migrate21()
         {
@@ -962,7 +959,7 @@ namespace Dopamine.Data
                 conn.Execute("VACUUM;");
             }
         }
-    
+
         [DatabaseVersion(22)]
         private void Migrate22()
         {
@@ -1137,7 +1134,7 @@ namespace Dopamine.Data
                 LogClient.Error("There was a problem initializing the database. Exception: {0}", ex.Message);
             }
         }
-  
+
         private bool IsDatabaseValid()
         {
             int count = 0;
@@ -1149,7 +1146,7 @@ namespace Dopamine.Data
                 // At some later point in time, this try catch can be removed.
                 count = conn.ExecuteScalar<int>("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Configurations'");
 
-                if(count == 0)
+                if (count == 0)
                 {
                     count = conn.ExecuteScalar<int>("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Configuration'");
                 }
@@ -1196,7 +1193,7 @@ namespace Dopamine.Data
             for (int i = this.userDatabaseVersion + 1; i <= CURRENT_VERSION; i++)
             {
                 MethodInfo method = typeof(DbMigrator).GetTypeInfo().GetDeclaredMethod("Migrate" + i);
-                if (method != null) method.Invoke(this, null);
+                method?.Invoke(this, null);
             }
 
             using (var conn = this.factory.GetConnection())
@@ -1206,14 +1203,18 @@ namespace Dopamine.Data
 
             LogClient.Info("Upgraded from database version {0} to {1}", this.userDatabaseVersion.ToString(), CURRENT_VERSION.ToString());
         }
-      
+
         private void BackupDatabase()
         {
             try
             {
                 string databaseFileCopy = this.factory.DatabaseFile + ".old";
 
-                if (File.Exists(databaseFileCopy)) File.Delete(databaseFileCopy);
+                if (File.Exists(databaseFileCopy))
+                {
+                    File.Delete(databaseFileCopy);
+                }
+
                 File.Copy(this.factory.DatabaseFile, databaseFileCopy);
             }
             catch (Exception ex)

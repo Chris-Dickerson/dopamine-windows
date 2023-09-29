@@ -14,18 +14,18 @@ namespace Dopamine.Services.ExternalControl
         private ExternalControlServer svcExternalControlInstance;
         private readonly IPlaybackService playbackService;
         private readonly ICacheService cacheService;
-     
+
         public ExternalControlService(IPlaybackService playbackService, ICacheService cacheService)
         {
             this.playbackService = playbackService;
             this.cacheService = cacheService;
 
-            if(SettingsClient.Get<bool>("Playback", "EnableExternalControl"))
+            if (SettingsClient.Get<bool>("Playback", "EnableExternalControl"))
             {
                 this.Start();
-            }   
+            }
         }
-       
+
         public void Start()
         {
             if (this.svcExternalControlInstance == null)

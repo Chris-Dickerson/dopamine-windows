@@ -2,6 +2,6 @@
 {
     public interface IPlayerFactory
     {
-       IPlayer Create(bool hasMediaFoundationSupport);
+        IPlayer Create(bool hasMediaFoundationSupport);
     }
 }

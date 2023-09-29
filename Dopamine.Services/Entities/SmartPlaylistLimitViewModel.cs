@@ -17,20 +17,20 @@ namespace Dopamine.Services.Entities
 
         public SmartPlaylistLimitType Type
         {
-            get { return this.type; }
-            set { SetProperty<SmartPlaylistLimitType>(ref this.type, value); }
+            get => this.type;
+            set => SetProperty<SmartPlaylistLimitType>(ref this.type, value);
         }
 
         public int Value
         {
-            get { return this.value; }
-            set { SetProperty<int>(ref this.value, value); }
+            get => this.value;
+            set => SetProperty<int>(ref this.value, value);
         }
 
         public bool IsEnabled
         {
-            get { return this.isEnabled; }
-            set { SetProperty<bool>(ref this.isEnabled, value); }
+            get => this.isEnabled;
+            set => SetProperty<bool>(ref this.isEnabled, value);
         }
 
         public SmartPlaylistLimit ToSmartPlaylistLimit()

@@ -7,13 +7,13 @@ namespace Dopamine.Services.Dialog
     public partial class InputDialog : Windows10BorderlessWindow
     {
         private string responseText;
-      
+
         public string ResponseText
         {
-            get { return this.responseText; }
-            set { this.responseText = value; }
+            get => this.responseText;
+            set => this.responseText = value;
         }
-      
+
         public InputDialog(int iconCharCode, int iconSize, string title, string content, string okText, string cancelText, string defaultResponse)
             : base()
         {
@@ -30,7 +30,7 @@ namespace Dopamine.Services.Dialog
 
             WindowUtils.CenterWindow(this);
         }
-    
+
         private void ButtonOK_Click(object sender, RoutedEventArgs e)
         {
             this.ResponseText = TextBoxResponse.Text;
@@ -46,7 +46,10 @@ namespace Dopamine.Services.Dialog
         {
             // Set focus to the TextBox and highlight the text. This makes user input easier.
             this.TextBoxResponse.Focus();
-            if (!string.IsNullOrEmpty(this.TextBoxResponse.Text)) this.TextBoxResponse.Select(0, this.TextBoxResponse.Text.Length);
+            if (!string.IsNullOrEmpty(this.TextBoxResponse.Text))
+            {
+                this.TextBoxResponse.Select(0, this.TextBoxResponse.Text.Length);
+            }
         }
     }
 }

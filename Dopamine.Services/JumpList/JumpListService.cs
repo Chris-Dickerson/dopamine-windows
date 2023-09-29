@@ -1,6 +1,5 @@
 ﻿using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
-using Dopamine.Services.JumpList;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -12,12 +11,12 @@ namespace Dopamine.Services.JumpList
     public class JumpListService : IJumpListService
     {
         private System.Windows.Shell.JumpList jumpList;
-      
+
         public JumpListService()
         {
             this.jumpList = System.Windows.Shell.JumpList.GetJumpList(Application.Current);
         }
-       
+
         public async void PopulateJumpListAsync()
         {
             await Task.Run(() =>
@@ -41,7 +40,7 @@ namespace Dopamine.Services.JumpList
 
             });
 
-            if (this.jumpList != null) this.jumpList.Apply();
+            this.jumpList?.Apply();
         }
     }
 }

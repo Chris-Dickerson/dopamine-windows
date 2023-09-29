@@ -9,16 +9,16 @@ namespace Dopamine.Services.Entities
 
         public string Header
         {
-            get { return this.header; }
-            set { SetProperty<string>(ref this.header, value); }
+            get => this.header;
+            set => SetProperty<string>(ref this.header, value);
         }
 
         public bool CanZoom
         {
-            get { return this.canZoom; }
-            set { SetProperty<bool>(ref this.canZoom, value); }
+            get => this.canZoom;
+            set => SetProperty<bool>(ref this.canZoom, value);
         }
-   
+
         public override string ToString()
         {
 

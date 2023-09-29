@@ -17,7 +17,7 @@ using System.Windows.Threading;
 namespace Dopamine.Services.ExternalControl
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    internal class ExternalControlServer : IExternalControlServer, IDisposable , IFftDataServer
+    internal class ExternalControlServer : IExternalControlServer, IDisposable, IFftDataServer
     {
         private const int FftDataLength = 256 * 4;
 
@@ -38,7 +38,7 @@ namespace Dopamine.Services.ExternalControl
 
         private readonly IPlaybackService playbackService;
         private readonly ICacheService cacheService;
-   
+
         public ExternalControlServer(IPlaybackService playbackService, ICacheService cacheService)
         {
             this.playbackService = playbackService;
@@ -53,7 +53,7 @@ namespace Dopamine.Services.ExternalControl
             fftDataMemoryMappedFileMutex = new Mutex(true, "DopamineFftDataMemoryMutex");
             fftDataMemoryMappedFileMutex.ReleaseMutex();
         }
-    
+
         private bool m_disposed = false;
 
         public void Dispose()
@@ -80,7 +80,7 @@ namespace Dopamine.Services.ExternalControl
         {
             Dispose(false);
         }
-       
+
         [OperationBehavior(ReleaseInstanceMode = ReleaseInstanceMode.None)]
         public string RegisterClient()
         {
@@ -112,37 +112,70 @@ namespace Dopamine.Services.ExternalControl
         public void SendHeartbeat() { }
 
         [OperationBehavior]
-        public async Task PlayNext() => await this.playbackService.PlayNextAsync();
+        public async Task PlayNext()
+        {
+            await this.playbackService.PlayNextAsync();
+        }
 
         [OperationBehavior]
-        public async Task PlayPrevious() => await this.playbackService.PlayPreviousAsync();
+        public async Task PlayPrevious()
+        {
+            await this.playbackService.PlayPreviousAsync();
+        }
 
         [OperationBehavior]
-        public void SetMute(bool mute) => this.playbackService.SetMute(mute);
+        public void SetMute(bool mute)
+        {
+            this.playbackService.SetMute(mute);
+        }
 
         [OperationBehavior]
-        public Task PlayOrPause() => this.playbackService.PlayOrPauseAsync();
+        public Task PlayOrPause()
+        {
+            return this.playbackService.PlayOrPauseAsync();
+        }
 
         [OperationBehavior]
-        public bool GetIsStopped() => this.playbackService.IsStopped;
+        public bool GetIsStopped()
+        {
+            return this.playbackService.IsStopped;
+        }
 
         [OperationBehavior]
-        public bool GetIsPlaying() => this.playbackService.IsPlaying;
+        public bool GetIsPlaying()
+        {
+            return this.playbackService.IsPlaying;
+        }
 
         [OperationBehavior]
-        public double GetProgress() => this.playbackService.Progress;
+        public double GetProgress()
+        {
+            return this.playbackService.Progress;
+        }
 
         [OperationBehavior]
-        public void SetProgress(double progress) => this.playbackService.SkipProgress(progress);
+        public void SetProgress(double progress)
+        {
+            this.playbackService.SkipProgress(progress);
+        }
 
         [OperationBehavior]
-        public ExternalTrack GetCurrenTrack() => new ExternalTrack(this.playbackService.CurrentTrack);
+        public ExternalTrack GetCurrenTrack()
+        {
+            return new ExternalTrack(this.playbackService.CurrentTrack);
+        }
 
         [OperationBehavior]
-        public string GetCurrentTrackArtworkPath(string artworkId) => this.cacheService.GetCachedArtworkPath(artworkId);
-     
+        public string GetCurrentTrackArtworkPath(string artworkId)
+        {
+            return this.cacheService.GetCachedArtworkPath(artworkId);
+        }
+
         [OperationBehavior]
-        public int GetFftDataSize() => FftDataLength;
+        public int GetFftDataSize()
+        {
+            return FftDataLength;
+        }
 
         [OperationBehavior]
         public async Task GetFftData()

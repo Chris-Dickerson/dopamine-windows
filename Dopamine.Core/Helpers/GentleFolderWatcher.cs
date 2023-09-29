@@ -75,7 +75,7 @@ namespace Dopamine.Core.Helpers
             {
                 if (disposing)
                 {
-                   if(this.watcher != null)
+                    if (this.watcher != null)
                     {
                         this.watcher.EnableRaisingEvents = false;
                         this.changeNotificationTimer.Stop();

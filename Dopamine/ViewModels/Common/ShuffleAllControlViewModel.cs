@@ -8,9 +8,9 @@ namespace Dopamine.ViewModels.Common
     public class ShuffleAllControlViewModel : BindableBase
     {
         private IPlaybackService playbackService;
-     
+
         public DelegateCommand ShuffleAllCommand { get; set; }
-     
+
         public ShuffleAllControlViewModel(IPlaybackService playbackService)
         {
             this.playbackService = playbackService;

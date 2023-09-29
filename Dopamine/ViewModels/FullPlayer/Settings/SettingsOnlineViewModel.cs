@@ -10,13 +10,13 @@ using Dopamine.Services.Scrobbling;
 using Dopamine.Views.FullPlayer.Settings;
 using Prism.Commands;
 using Prism.Events;
+using Prism.Ioc;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Prism.Ioc;
 
 namespace Dopamine.ViewModels.FullPlayer.Settings
 {
@@ -63,7 +63,7 @@ namespace Dopamine.ViewModels.FullPlayer.Settings
                 {
                     SettingsClient.Set<int>("Lyrics", "TimeoutSeconds", value.Value);
                 }
-                
+
                 SetProperty<NameValue>(ref this.selectedTimeout, value);
             }
         }

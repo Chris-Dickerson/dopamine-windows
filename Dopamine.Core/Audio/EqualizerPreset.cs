@@ -15,32 +15,20 @@ namespace Dopamine.Core.Audio
 
         public double[] Bands
         {
-            get { return this.bands; }
-            set
-            {
-                this.bands = value;
-            }
+            get => this.bands;
+            set => this.bands = value;
         }
 
-        public bool IsRemovable
-        {
-            get { return this.isRemovable; }
-        }
+        public bool IsRemovable => this.isRemovable;
 
-        public string Name
-        {
-            get { return this.name; }
-        }
+        public string Name => this.name;
 
         private string displayName;
 
         public string DisplayName
         {
-            get { return this.displayName; }
-            set
-            {
-                this.displayName = value;
-            }
+            get => this.displayName;
+            set => this.displayName = value;
         }
 
         public EqualizerPreset(string name, bool isRemovable)

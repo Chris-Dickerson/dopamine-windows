@@ -1,6 +1,6 @@
-﻿using Dopamine.ViewModels;
+﻿using CommonServiceLocator;
 using Dopamine.Services.Playback;
-using CommonServiceLocator;
+using Dopamine.ViewModels;
 using Prism.Events;
 
 namespace Dopamine.ViewModels.Common

@@ -1,15 +1,15 @@
-﻿using Digimezzo.Foundation.Core.Logging;
-using Dopamine.Utils;
+﻿using CommonServiceLocator;
+using Digimezzo.Foundation.Core.Logging;
 using Dopamine.Core.Prism;
 using Dopamine.Services.Playback;
-using CommonServiceLocator;
+using Dopamine.Services.Utils;
+using Dopamine.Utils;
 using Prism.Events;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
-using Dopamine.Services.Utils;
 
 namespace Dopamine.Views.Common
 {
@@ -19,7 +19,7 @@ namespace Dopamine.Views.Common
         private IEventAggregator eventAggregator;
         private ListBox lyricsListBox;
         private TextBox lyricsTextBox;
-       
+
         public LyricsControl()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace Dopamine.Views.Common
             this.eventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
             this.eventAggregator.GetEvent<ScrollToHighlightedLyricsLine>().Subscribe((_) => this.ScrollToHighlightedLyricsLineAsync());
         }
-    
+
         private void LyricsListBox_Loaded(object sender, RoutedEventArgs e)
         {
             // This is a workaround to be able to access the LyricsListBox which is in the DataTemplate.

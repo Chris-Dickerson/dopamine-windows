@@ -27,7 +27,7 @@ namespace Dopamine.Utils
             contentIsSet = contentIsSet | (BindingOperations.GetBinding(regionTarget, ContentControl.ContentProperty) != null);
 
             if (contentIsSet) throw new InvalidOperationException();
-           
+
             region.ActiveViews.CollectionChanged += (_, __) => { regionTarget.Content = region.ActiveViews.FirstOrDefault(); };
             region.Views.CollectionChanged += (_, e) =>
             {

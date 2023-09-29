@@ -40,7 +40,10 @@ namespace Dopamine.Services.Utils
                     foreach (ISemanticZoomable zoomable in semanticZoomables)
                     {
                         dynamic selector = zoomSelectors.Select((s) => s).Where((s) => s.Header.ToLower() == zoomable.Header.ToLower()).FirstOrDefault();
-                        if (selector != null) selector.CanZoom = true;
+                        if (selector != null)
+                        {
+                            selector.CanZoom = true;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -54,12 +57,16 @@ namespace Dopamine.Services.Utils
 
         public static async Task SemanticScrollAsync(ListBox box, string header)
         {
-            if (box == null) return;
+            if (box == null)
+            {
+                return;
+            }
 
             // Find the Object in the ListBox Items
             Object itemobject = null;
 
-            await Task.Run(() => {
+            await Task.Run(() =>
+            {
                 try
                 {
                     for (int i = 0; i <= box.Items.Count - 1; i++)
@@ -77,7 +84,10 @@ namespace Dopamine.Services.Utils
                 }
             });
 
-            if (itemobject == null) return;
+            if (itemobject == null)
+            {
+                return;
+            }
 
             try
             {
@@ -92,7 +102,9 @@ namespace Dopamine.Services.Utils
         public static string GetGroupHeader(string originalString, bool removePrefix = false)
         {
             if (string.IsNullOrEmpty(originalString))
+            {
                 return string.Empty;
+            }
 
             string firstLetter = FormatUtils.GetSortableString(originalString, removePrefix).Substring(0, 1);
 

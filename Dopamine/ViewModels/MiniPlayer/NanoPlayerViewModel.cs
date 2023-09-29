@@ -1,5 +1,5 @@
-﻿using Dopamine.ViewModels.Common.Base;
-using Dopamine.Core.Prism;
+﻿using Dopamine.Core.Prism;
+using Dopamine.ViewModels.Common.Base;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Ioc;

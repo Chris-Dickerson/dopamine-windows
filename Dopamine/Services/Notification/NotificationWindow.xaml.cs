@@ -19,7 +19,7 @@ namespace Dopamine.Services.Notification
         private int hideTimerValue = 1;
         private int notificationShadowSize = 10;
         private int notificationMarginFromScreen = 0;
-       
+
         public NotificationWindow(TrackViewModel track, byte[] artworkData, NotificationPosition position, bool showControls, int maxSecondsVisible) : base()
         {
             this.InitializeComponent();
@@ -61,7 +61,7 @@ namespace Dopamine.Services.Notification
                 try
                 {
                     // Width and Height are 300px. They need to be big enough, otherwise the picture is blurry
-                    this.CoverPicture.Source = ImageUtils.ByteToBitmapImage(artworkData, 300, 300,0);
+                    this.CoverPicture.Source = ImageUtils.ByteToBitmapImage(artworkData, 300, 300, 0);
                     this.CloseBorder.Opacity = 1.0;
                 }
                 catch (Exception)
@@ -122,7 +122,7 @@ namespace Dopamine.Services.Notification
             this.hideTimer.Tick += new EventHandler(HideTimer_Tick);
             this.closeTimer.Tick += new EventHandler(CloseTimer_Tick);
         }
-    
+
         private void HideTimer_Tick(object sender, EventArgs e)
         {
 
@@ -157,7 +157,7 @@ namespace Dopamine.Services.Notification
             {
                 LogClient.Error("Could not hide notification window from ALT-TAB menu. Exception: {0}", ex.Message);
             }
-            
+
             this.IsEnabled = true;
             this.hideTimer.Start(); // This activates fade-in
         }
@@ -180,7 +180,7 @@ namespace Dopamine.Services.Notification
                 this.DoubleClicked(this, new EventArgs());
             }
         }
-    
+
         public new void Show()
         {
             base.Show();
@@ -192,7 +192,7 @@ namespace Dopamine.Services.Notification
             this.IsEnabled = false; // This activates fade-out
             this.closeTimer.Start(); // Only close 1 second after fade-out was activated
         }
-      
+
         public event EventHandler DoubleClicked = delegate { };
     }
 }

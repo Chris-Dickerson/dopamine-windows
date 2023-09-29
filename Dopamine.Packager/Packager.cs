@@ -27,8 +27,8 @@ namespace Dopamine.Packager
             if (info.Key == ConsoleKey.Y)
             {
                 proceed = true;
-               
-            }   
+
+            }
 #endif
 
             if (proceed)

@@ -82,7 +82,7 @@ namespace Dopamine.ViewModels.Common
             }
         }
 
-        public CollectionFoldersSettingsViewModel(IIndexingService indexingService, IDialogService dialogService, 
+        public CollectionFoldersSettingsViewModel(IIndexingService indexingService, IDialogService dialogService,
             ICollectionService collectionservice, IFoldersService foldersService)
         {
             this.indexingService = indexingService;

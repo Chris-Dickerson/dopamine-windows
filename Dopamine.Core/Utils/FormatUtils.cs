@@ -111,7 +111,10 @@ namespace Dopamine.Core.Utils
 
         public static string GetSortableString(string originalString, bool removePrefix = false)
         {
-            if (string.IsNullOrEmpty(originalString)) return string.Empty;
+            if (string.IsNullOrEmpty(originalString))
+            {
+                return string.Empty;
+            }
 
             string returnString = originalString.ToLower().Trim();
 

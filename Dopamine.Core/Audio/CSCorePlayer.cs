@@ -82,29 +82,17 @@ namespace Dopamine.Core.Audio
 
         public bool HasMediaFoundationSupport
         {
-            get { return this.hasMediaFoundationSupport; }
-            set { this.hasMediaFoundationSupport = value; }
+            get => this.hasMediaFoundationSupport;
+            set => this.hasMediaFoundationSupport = value;
         }
 
-        public string Filename
-        {
-            get { return this.filename; }
-        }
+        public string Filename => this.filename;
 
-        public bool CanPlay
-        {
-            get { return this.canPlay; }
-        }
+        public bool CanPlay => this.canPlay;
 
-        public bool CanPause
-        {
-            get { return this.canPause; }
-        }
+        public bool CanPause => this.canPause;
 
-        public bool CanStop
-        {
-            get { return this.canStop; }
-        }
+        public bool CanStop => this.canStop;
 
         public event EventHandler PlaybackFinished = delegate { };
         public event PlaybackInterruptedEventHandler PlaybackInterrupted = delegate { };
@@ -132,7 +120,10 @@ namespace Dopamine.Core.Audio
 
         public void ApplyFilterValue(int index, double value)
         {
-            if (this.equalizer == null) return;
+            if (this.equalizer == null)
+            {
+                return;
+            }
 
             EqualizerFilter filter = this.equalizer.SampleFilters[index];
             filter.AverageGainDB = (float)(value);
@@ -140,7 +131,10 @@ namespace Dopamine.Core.Audio
 
         public void ApplyFilter(double[] filterValues)
         {
-            if (filterValues == null) return;
+            if (filterValues == null)
+            {
+                return;
+            }
 
             for (var i = 0; i < filterValues.Length; i++)
             {
@@ -321,7 +315,10 @@ namespace Dopamine.Core.Audio
 
             // If the SampleRate < 32000, make it 32000. The Equalizer's maximum frequency is 16000Hz.
             // The sample rate has to be bigger than 2 * frequency.
-            if (waveSource.WaveFormat.SampleRate < 32000) waveSource = waveSource.ChangeSampleRate(32000);
+            if (waveSource.WaveFormat.SampleRate < 32000)
+            {
+                waveSource = waveSource.ChangeSampleRate(32000);
+            }
 
             return waveSource
                 .ToSampleSource()
@@ -463,8 +460,8 @@ namespace Dopamine.Core.Audio
                     this.soundOut.Stopped -= this.SoundOutStoppedHandler;
                     this.soundOut.Stop();
 
-                    if (this.soundOut.WaveSource != null) this.soundOut.WaveSource.Dispose();
-                    if (this.equalizer != null) this.equalizer.Dispose();
+                    this.soundOut.WaveSource?.Dispose();
+                    this.equalizer?.Dispose();
 
                     this.soundOut.Dispose();
                     this.soundOut = null;
@@ -523,7 +520,7 @@ namespace Dopamine.Core.Audio
 
         public bool IsPlaying
         {
-            get { return this.isPlaying; }
+            get => this.isPlaying;
             set
             {
                 this.isPlaying = value;
@@ -559,18 +556,30 @@ namespace Dopamine.Core.Audio
                 {
                     if (channel == SpectrumChannel.Left)
                     {
-                        if (this.player.notificationSource != null) this.player.notificationSource.SingleBlockRead += InputStream_LeftSample;
+                        if (this.player.notificationSource != null)
+                        {
+                            this.player.notificationSource.SingleBlockRead += InputStream_LeftSample;
+                        }
+
                         inputStreamList.Add(InputStream_LeftSample);
                     }
                     if (channel == SpectrumChannel.Right)
                     {
-                        if (this.player.notificationSource != null) this.player.notificationSource.SingleBlockRead += InputStream_RightSample;
+                        if (this.player.notificationSource != null)
+                        {
+                            this.player.notificationSource.SingleBlockRead += InputStream_RightSample;
+                        }
+
                         inputStreamList.Add(InputStream_RightSample);
                     }
                 }
                 else
                 {
-                    if (this.player.notificationSource != null) this.player.notificationSource.SingleBlockRead += InputStream_Sample;
+                    if (this.player.notificationSource != null)
+                    {
+                        this.player.notificationSource.SingleBlockRead += InputStream_Sample;
+                    }
+
                     inputStreamList.Add(InputStream_Sample);
                 }
             }

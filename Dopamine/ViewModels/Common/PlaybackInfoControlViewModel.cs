@@ -216,7 +216,7 @@ namespace Dopamine.ViewModels.Common
 
         private void UpdateTime()
         {
-            if(this.PlaybackInfoViewModel == null)
+            if (this.PlaybackInfoViewModel == null)
             {
                 return;
             }

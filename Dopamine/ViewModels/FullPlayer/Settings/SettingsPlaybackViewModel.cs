@@ -3,6 +3,7 @@ using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Audio;
 using Dopamine.Core.Base;
+using Dopamine.Core.Helpers;
 using Dopamine.Services.Dialog;
 using Dopamine.Services.ExternalControl;
 using Dopamine.Services.I18n;
@@ -16,7 +17,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Dopamine.Core.Helpers;
 
 namespace Dopamine.ViewModels.FullPlayer.Settings
 {

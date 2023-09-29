@@ -1,8 +1,8 @@
-﻿using Digimezzo.Foundation.Core.Logging;
+﻿using Digimezzo.Foundation.Core.Helpers;
+using Digimezzo.Foundation.Core.Logging;
 using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.Core.Utils;
 using Digimezzo.Foundation.Core.Win32;
-using Digimezzo.Foundation.Core.Helpers;
 using Dopamine.Core.Base;
 using Dopamine.Services.Notification;
 using System;
@@ -61,7 +61,7 @@ namespace Dopamine.Views.Common
         private void SetGeometry()
         {
             var taskbar = new Taskbar();
-           
+
             Rect desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
 
             this.Left = desktopWorkingArea.Right - Constants.TrayControlsWidth - 5;

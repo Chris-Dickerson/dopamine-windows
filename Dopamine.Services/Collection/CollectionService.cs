@@ -2,7 +2,6 @@
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Utils;
 using Dopamine.Data;
-using Dopamine.Data.Entities;
 using Dopamine.Data.Repositories;
 using Dopamine.Services.Cache;
 using Dopamine.Services.Entities;
@@ -78,7 +77,10 @@ namespace Dopamine.Services.Collection
             }
 
             if (sendToRecycleBinResult == RemoveTracksResult.Success && result == RemoveTracksResult.Success)
+            {
                 return RemoveTracksResult.Success;
+            }
+
             return RemoveTracksResult.Error;
         }
 

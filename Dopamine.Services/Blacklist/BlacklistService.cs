@@ -36,7 +36,7 @@ namespace Dopamine.Services.Blacklist
                 }
             }
 
-            if(blacklistTracks.Count > 0)
+            if (blacklistTracks.Count > 0)
             {
                 await this.blacklistTrackRepository.AddToBlacklistAsync(blacklistTracks);
                 this.AddedTracksToBacklist(blacklistTracks.Count);

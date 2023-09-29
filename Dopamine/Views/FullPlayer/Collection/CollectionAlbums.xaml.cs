@@ -1,5 +1,5 @@
-﻿using Dopamine.Views.Common.Base;
-using Dopamine.Core.Prism;
+﻿using Dopamine.Core.Prism;
+using Dopamine.Views.Common.Base;
 using Prism.Commands;
 using System.Windows;
 using System.Windows.Input;

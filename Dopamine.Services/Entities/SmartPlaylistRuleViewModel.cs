@@ -42,13 +42,13 @@ namespace Dopamine.Services.Entities
 
         public ObservableCollection<SmartPlaylistRuleFieldViewModel> Fields
         {
-            get { return this.fields; }
-            set { SetProperty<ObservableCollection<SmartPlaylistRuleFieldViewModel>>(ref this.fields, value); }
+            get => this.fields;
+            set => SetProperty<ObservableCollection<SmartPlaylistRuleFieldViewModel>>(ref this.fields, value);
         }
 
         public SmartPlaylistRuleFieldViewModel SelectedField
         {
-            get { return this.selectedField; }
+            get => this.selectedField;
             set
             {
                 SetProperty<SmartPlaylistRuleFieldViewModel>(ref this.selectedField, value);
@@ -59,44 +59,44 @@ namespace Dopamine.Services.Entities
 
         public ObservableCollection<SmartPlaylistRuleOperatorViewModel> Operators
         {
-            get { return this.operators; }
-            set { SetProperty<ObservableCollection<SmartPlaylistRuleOperatorViewModel>>(ref this.operators, value); }
+            get => this.operators;
+            set => SetProperty<ObservableCollection<SmartPlaylistRuleOperatorViewModel>>(ref this.operators, value);
         }
 
         public SmartPlaylistRuleOperatorViewModel SelectedOperator
         {
-            get { return this.selectedOperator; }
-            set { SetProperty<SmartPlaylistRuleOperatorViewModel>(ref this.selectedOperator, value); }
+            get => this.selectedOperator;
+            set => SetProperty<SmartPlaylistRuleOperatorViewModel>(ref this.selectedOperator, value);
         }
 
         public string Operator
         {
-            get { return this.@operator; }
-            set { SetProperty<string>(ref this.@operator, value); }
+            get => this.@operator;
+            set => SetProperty<string>(ref this.@operator, value);
         }
 
         public string Value
         {
-            get { return this.value; }
-            set { SetProperty<string>(ref this.value, value); }
+            get => this.value;
+            set => SetProperty<string>(ref this.value, value);
         }
 
         public bool IsTextInputSelected
         {
-            get { return this.isTextInputSelected; }
-            set { SetProperty<bool>(ref this.isTextInputSelected, value); }
+            get => this.isTextInputSelected;
+            set => SetProperty<bool>(ref this.isTextInputSelected, value);
         }
 
         public bool IsLoveSelected
         {
-            get { return this.isLoveSelected; }
-            set { SetProperty<bool>(ref this.isLoveSelected, value); }
+            get => this.isLoveSelected;
+            set => SetProperty<bool>(ref this.isLoveSelected, value);
         }
 
         public bool IsRatingSelected
         {
-            get { return this.isRatingSelected; }
-            set { SetProperty<bool>(ref this.isRatingSelected, value); }
+            get => this.isRatingSelected;
+            set => SetProperty<bool>(ref this.isRatingSelected, value);
         }
 
         private void GetValueSelector()

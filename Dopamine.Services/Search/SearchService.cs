@@ -1,5 +1,4 @@
 ﻿using Dopamine.Core.Base;
-using Dopamine.Services.Search;
 using System;
 using System.Timers;
 
@@ -10,23 +9,27 @@ namespace Dopamine.Services.Search
         private string searchText = string.Empty;
         private Timer searchTimer;
         private double searchTimeoutSeconds = Constants.SearchTimeoutSeconds;
-      
+
         public string SearchText
         {
             // Make sure we never return null
-            get { return this.searchText != null ? this.searchText : string.Empty; }
+            get             // Make sure we never return null
+            => this.searchText ?? string.Empty;
             set
             {
                 bool isTextChanged = !this.searchText.Trim().Equals(value.Trim());
                 this.searchText = value;
 
                 // Only trigger a search if the text has changed
-                if (isTextChanged) this.StartSearchTimer();
+                if (isTextChanged)
+                {
+                    this.StartSearchTimer();
+                }
             }
         }
-       
+
         public event Action<string> DoSearch = delegate { };
-       
+
         private void StartSearchTimer()
         {
             if (this.searchTimer == null)

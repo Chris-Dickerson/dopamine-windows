@@ -1,16 +1,16 @@
 ﻿using Digimezzo.Foundation.Core.Logging;
-using Dopamine.Views.Common.Base;
 using Dopamine.Core.Prism;
+using Dopamine.Services.Entities;
+using Dopamine.Services.Utils;
 using Dopamine.Utils;
 using Dopamine.ViewModels;
+using Dopamine.Views.Common.Base;
 using Prism.Commands;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Dopamine.Services.Utils;
-using Dopamine.Services.Entities;
 
 namespace Dopamine.Views.FullPlayer.Collection
 {
@@ -27,7 +27,8 @@ namespace Dopamine.Views.FullPlayer.Collection
             // PubSub Events
             this.eventAggregator.GetEvent<ScrollToPlayingTrack>().Subscribe(async (_) => await this.ScrollToPlayingTrackAsync(this.ListBoxTracks));
 
-            this.eventAggregator.GetEvent<PerformSemanticJump>().Subscribe(async (data) => {
+            this.eventAggregator.GetEvent<PerformSemanticJump>().Subscribe(async (data) =>
+            {
                 try
                 {
                     if (data.Item1.Equals("Genres"))

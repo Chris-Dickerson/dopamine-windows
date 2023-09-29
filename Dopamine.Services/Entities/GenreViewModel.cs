@@ -16,14 +16,11 @@ namespace Dopamine.Services.Entities
             this.genreName = DataUtils.TrimColumnValue(genreName);
             this.isHeader = false;
         }
-      
+
         public string GenreName
         {
-            get { return this.genreName; }
-            set
-            {
-                SetProperty<string>(ref this.genreName, value);
-            }
+            get => this.genreName;
+            set => SetProperty<string>(ref this.genreName, value);
         }
 
         public string SortGenreName => FormatUtils.GetSortableString(this.genreName, true);
@@ -32,10 +29,10 @@ namespace Dopamine.Services.Entities
 
         public bool IsHeader
         {
-            get { return this.isHeader; }
-            set { SetProperty<bool>(ref this.isHeader, value); }
+            get => this.isHeader;
+            set => SetProperty<bool>(ref this.isHeader, value);
         }
-     
+
         public override string ToString()
         {
             return this.genreName;

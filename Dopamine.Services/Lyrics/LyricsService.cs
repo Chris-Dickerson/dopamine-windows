@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Dopamine.Core.Api.Lyrics;
 
 namespace Dopamine.Services.Lyrics
 {
@@ -38,7 +37,7 @@ namespace Dopamine.Services.Lyrics
                 else
                 {
                     lines.Add(new LyricsLineViewModel(span, string.Empty));
-                }  
+                }
             }
         }
 

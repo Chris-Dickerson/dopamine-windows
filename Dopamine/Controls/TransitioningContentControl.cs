@@ -19,7 +19,7 @@ namespace Dopamine.Controls
         public static readonly DependencyProperty RightToLeftProperty = DependencyProperty.Register("RightToLeft", typeof(bool), typeof(TransitioningContentControl), new PropertyMetadata(null));
 
         public static readonly RoutedEvent ContentChangedEvent = EventManager.RegisterRoutedEvent("ContentChanged", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(TransitioningContentControl));
-        
+
         public event RoutedEventHandler ContentChanged
         {
             add { this.AddHandler(ContentChangedEvent, value); }

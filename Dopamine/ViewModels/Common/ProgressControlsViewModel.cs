@@ -23,17 +23,17 @@ namespace Dopamine.ViewModels.Common
             get { return this.canReportProgress; }
             set { SetProperty<bool>(ref this.canReportProgress, value); }
         }
-   
+
         public ProgressControlsViewModel(IPlaybackService playBackService)
         {
             this.playBackService = playBackService;
 
-            this.playBackService.PlaybackProgressChanged += (sender,e) => this.GetPlayBackServiceProgress();
+            this.playBackService.PlaybackProgressChanged += (sender, e) => this.GetPlayBackServiceProgress();
             this.playBackService.PlaybackFailed += (_, __) => this.GetPlayBackServiceProgress();
             this.playBackService.PlaybackStopped += (_, __) => this.GetPlayBackServiceProgress();
-            this.playBackService.PlaybackSuccess += (_,__) => this.GetPlayBackServiceProgress();
+            this.playBackService.PlaybackSuccess += (_, __) => this.GetPlayBackServiceProgress();
         }
-        
+
         private void SetPlayBackServiceProgress(double progress)
         {
             this.playBackService.SkipProgress(progress);

@@ -19,11 +19,8 @@ namespace Dopamine.Services.Entities
 
         public string ArtistName
         {
-            get { return this.artistName; }
-            set
-            {
-                SetProperty<string>(ref this.artistName, value);
-            }
+            get => this.artistName;
+            set => SetProperty<string>(ref this.artistName, value);
         }
 
         public string SortArtistName => FormatUtils.GetSortableString(this.artistName, true);
@@ -32,8 +29,8 @@ namespace Dopamine.Services.Entities
 
         public bool IsHeader
         {
-            get { return this.isHeader; }
-            set { SetProperty<bool>(ref this.isHeader, value); }
+            get => this.isHeader;
+            set => SetProperty<bool>(ref this.isHeader, value);
         }
 
         public override string ToString()

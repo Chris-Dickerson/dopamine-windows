@@ -16,14 +16,14 @@ namespace Dopamine.Services.Entities
 
         public SmartPlaylistLimitType Type
         {
-            get { return this.type; }
-            set { SetProperty<SmartPlaylistLimitType>(ref this.type, value); }
+            get => this.type;
+            set => SetProperty<SmartPlaylistLimitType>(ref this.type, value);
         }
 
         public string DisplayName
         {
-            get { return this.displayName; }
-            set { SetProperty<string>(ref this.displayName, value); }
+            get => this.displayName;
+            set => SetProperty<string>(ref this.displayName, value);
         }
 
         public override string ToString()

@@ -7,17 +7,17 @@ namespace Dopamine.Controls
 {
     public class CombiLabel : Label
     {
-        public static readonly DependencyProperty FontSize2Property = 
+        public static readonly DependencyProperty FontSize2Property =
             DependencyProperty.Register("FontSize2", typeof(int), typeof(CombiLabel), new PropertyMetadata(null));
-        public static readonly DependencyProperty FontWeight2Property = 
+        public static readonly DependencyProperty FontWeight2Property =
             DependencyProperty.Register("FontWeight2", typeof(FontWeight), typeof(CombiLabel), new PropertyMetadata(null));
-        public static readonly DependencyProperty FontStyle2Property = 
+        public static readonly DependencyProperty FontStyle2Property =
             DependencyProperty.Register("FontStyle2", typeof(FontStyle), typeof(CombiLabel), new PropertyMetadata(null));
-        public static readonly DependencyProperty Content2Property = 
+        public static readonly DependencyProperty Content2Property =
             DependencyProperty.Register("Content2", typeof(object), typeof(CombiLabel), new PropertyMetadata(null));
-        public static readonly DependencyProperty Foreground2Property = 
+        public static readonly DependencyProperty Foreground2Property =
             DependencyProperty.Register("Foreground2", typeof(Brush), typeof(CombiLabel), new PropertyMetadata(null));
- 
+
         public int FontSize2
         {
             get { return Convert.ToInt32(GetValue(FontSize2Property)); }
@@ -45,7 +45,7 @@ namespace Dopamine.Controls
 
             set { SetValue(Foreground2Property, value); }
         }
-      
+
         static CombiLabel()
         {
             //This OverrideMetadata call tells the system that this element wants to provide a style that is different than its base class.

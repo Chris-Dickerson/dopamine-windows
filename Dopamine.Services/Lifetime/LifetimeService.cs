@@ -59,7 +59,7 @@ namespace Dopamine.Services.Lifetime
 
             // Save playback counters
             startTime = DateTime.Now;
-            
+
             if (this.playbackService.IsSavingPlaybackCounters)
             {
                 while (this.playbackService.IsSavingPlaybackCounters)

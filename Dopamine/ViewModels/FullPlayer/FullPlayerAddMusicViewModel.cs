@@ -52,7 +52,7 @@ namespace Dopamine.ViewModels.FullPlayer
                 if (!value)
                 {
                     // Fire and forget
-                    this.trackRepository.ClearRemovedTrackAsync(); 
+                    this.trackRepository.ClearRemovedTrackAsync();
                 }
             }
         }

@@ -25,6 +25,6 @@ namespace Dopamine.Services.Collection
         Task<IList<AlbumViewModel>> OrderAlbumsAsync(IList<AlbumViewModel> albums, AlbumOrder albumOrder);
 
         event EventHandler CollectionChanged;
-       
+
     }
 }

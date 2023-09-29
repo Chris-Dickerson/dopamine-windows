@@ -125,7 +125,7 @@ namespace Dopamine.ViewModels.Common
             get { return this.audioBitrate; }
             set { SetProperty<string>(ref this.audioBitrate, value); }
         }
-        
+
         public FileInformationViewModel(IMetadataService metaDataService, string path)
         {
             this.metaDataService = metaDataService;
@@ -133,7 +133,7 @@ namespace Dopamine.ViewModels.Common
             this.GetFileMetadata(path);
             this.GetFileInformation(path);
         }
-    
+
         private void GetFileMetadata(string path)
         {
             try

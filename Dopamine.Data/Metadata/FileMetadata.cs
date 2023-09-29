@@ -58,7 +58,10 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.title == null) this.title = new MetadataValue(this.file.Tag.Title);
+                if (this.title == null)
+                {
+                    this.title = new MetadataValue(this.file.Tag.Title);
+                }
 
                 return this.title;
             }
@@ -76,7 +79,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.album == null) this.album = new MetadataValue(this.file.Tag.Album);
+                if (this.album == null)
+                {
+                    this.album = new MetadataValue(this.file.Tag.Album);
+                }
+
                 return this.album;
             }
             set
@@ -93,7 +100,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.albumArtists == null) this.albumArtists = new MetadataValue(this.file.Tag.AlbumArtists);
+                if (this.albumArtists == null)
+                {
+                    this.albumArtists = new MetadataValue(this.file.Tag.AlbumArtists);
+                }
+
                 return this.albumArtists;
             }
             set
@@ -110,7 +121,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.artists == null) this.artists = new MetadataValue(this.file.Tag.Performers);
+                if (this.artists == null)
+                {
+                    this.artists = new MetadataValue(this.file.Tag.Performers);
+                }
+
                 return this.artists;
             }
             set
@@ -128,7 +143,10 @@ namespace Dopamine.Data.Metadata
             get
             {
                 if (this.genres == null)
+                {
                     this.genres = new MetadataValue(this.file.Tag.Genres);
+                }
+
                 return this.genres;
             }
             set
@@ -145,7 +163,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.comment == null) this.comment = new MetadataValue(this.file.Tag.Comment);
+                if (this.comment == null)
+                {
+                    this.comment = new MetadataValue(this.file.Tag.Comment);
+                }
+
                 return this.comment;
             }
             set
@@ -162,7 +184,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.grouping == null) this.grouping = new MetadataValue(this.file.Tag.Grouping);
+                if (this.grouping == null)
+                {
+                    this.grouping = new MetadataValue(this.file.Tag.Grouping);
+                }
+
                 return this.grouping;
             }
             set
@@ -179,7 +205,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.year == null) this.year = new MetadataValue(this.file.Tag.Year);
+                if (this.year == null)
+                {
+                    this.year = new MetadataValue(this.file.Tag.Year);
+                }
+
                 return this.year;
             }
             set
@@ -187,7 +217,7 @@ namespace Dopamine.Data.Metadata
                 if (value.IsValueChanged)
                 {
                     this.year = value;
-                    this.file.Tag.Year = string.IsNullOrEmpty(value.Value) ? (UInt32)0 : Convert.ToUInt32(value.Value);
+                    this.file.Tag.Year = string.IsNullOrEmpty(value.Value) ? 0 : Convert.ToUInt32(value.Value);
                 }
             }
         }
@@ -196,7 +226,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.trackNumber == null) this.trackNumber = new MetadataValue(this.file.Tag.Track);
+                if (this.trackNumber == null)
+                {
+                    this.trackNumber = new MetadataValue(this.file.Tag.Track);
+                }
+
                 return this.trackNumber;
             }
             set
@@ -204,7 +238,7 @@ namespace Dopamine.Data.Metadata
                 if (value.IsValueChanged)
                 {
                     this.trackNumber = value;
-                    this.file.Tag.Track = string.IsNullOrEmpty(value.Value) ? (UInt32)0 : Convert.ToUInt32(value.Value);
+                    this.file.Tag.Track = string.IsNullOrEmpty(value.Value) ? 0 : Convert.ToUInt32(value.Value);
                 }
             }
         }
@@ -213,7 +247,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.trackCount == null) this.trackCount = new MetadataValue(this.file.Tag.TrackCount);
+                if (this.trackCount == null)
+                {
+                    this.trackCount = new MetadataValue(this.file.Tag.TrackCount);
+                }
+
                 return this.trackCount;
             }
             set
@@ -221,7 +259,7 @@ namespace Dopamine.Data.Metadata
                 if (value.IsValueChanged)
                 {
                     this.trackCount = value;
-                    this.file.Tag.TrackCount = string.IsNullOrEmpty(value.Value) ? (UInt32)0 : Convert.ToUInt32(value.Value);
+                    this.file.Tag.TrackCount = string.IsNullOrEmpty(value.Value) ? 0 : Convert.ToUInt32(value.Value);
                 }
             }
         }
@@ -230,7 +268,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.discNumber == null) this.discNumber = new MetadataValue(this.file.Tag.Disc);
+                if (this.discNumber == null)
+                {
+                    this.discNumber = new MetadataValue(this.file.Tag.Disc);
+                }
+
                 return this.discNumber;
             }
             set
@@ -238,7 +280,7 @@ namespace Dopamine.Data.Metadata
                 if (value.IsValueChanged)
                 {
                     this.discNumber = value;
-                    this.file.Tag.Disc = string.IsNullOrEmpty(value.Value) ? (UInt32)0 : Convert.ToUInt32(value.Value);
+                    this.file.Tag.Disc = string.IsNullOrEmpty(value.Value) ? 0 : Convert.ToUInt32(value.Value);
                 }
             }
         }
@@ -247,7 +289,11 @@ namespace Dopamine.Data.Metadata
         {
             get
             {
-                if (this.discCount == null) this.discCount = new MetadataValue(this.file.Tag.DiscCount);
+                if (this.discCount == null)
+                {
+                    this.discCount = new MetadataValue(this.file.Tag.DiscCount);
+                }
+
                 return this.discCount;
             }
             set
@@ -255,7 +301,7 @@ namespace Dopamine.Data.Metadata
                 if (value.IsValueChanged)
                 {
                     this.discCount = value;
-                    this.file.Tag.DiscCount = string.IsNullOrEmpty(value.Value) ? (UInt32)0 : Convert.ToUInt32(value.Value);
+                    this.file.Tag.DiscCount = string.IsNullOrEmpty(value.Value) ? 0 : Convert.ToUInt32(value.Value);
                 }
             }
         }
@@ -330,7 +376,7 @@ namespace Dopamine.Data.Metadata
                 if (this.artworkData == null)
                 {
                     // TODO: there can be more than 1 picture in a file. Should we loop and get the first non-zero picture?
-                    this.artworkData = new MetadataArtworkValue(this.file.Tag.Pictures.Length > 0 && this.file.Tag.Pictures[0].Data != null && this.file.Tag.Pictures[0].Data.Data != null && this.file.Tag.Pictures[0].Data.Data.Length > 0 ? (byte[])this.file.Tag.Pictures[0].Data.Data : null);
+                    this.artworkData = new MetadataArtworkValue(this.file.Tag.Pictures.Length > 0 && this.file.Tag.Pictures[0].Data != null && this.file.Tag.Pictures[0].Data.Data != null && this.file.Tag.Pictures[0].Data.Data.Length > 0 ? file.Tag.Pictures[0].Data.Data : null);
                 }
 
                 return this.artworkData;

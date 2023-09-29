@@ -1,5 +1,5 @@
-﻿using Dopamine.Services.Playback;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
+using Dopamine.Services.Playback;
 
 namespace Dopamine.ViewModels
 {

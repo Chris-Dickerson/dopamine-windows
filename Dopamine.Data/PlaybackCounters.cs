@@ -1,6 +1,4 @@
-﻿using Dopamine.Core.Extensions;
-
-namespace Dopamine.Data
+﻿namespace Dopamine.Data
 {
     public class PlaybackCounter
     {

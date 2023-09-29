@@ -59,7 +59,9 @@ namespace Dopamine.Core.Helpers
         public OrderedDictionary()
         {
             if (typeof(TKey) == typeof(int))
+            {
                 throw new NotSupportedException("Integer-like type is not appropriate for keys in an ordered dictionary - accessing values by key or index would be confusing.");
+            }
 
             fDictionary = new Dictionary<TKey, TValue>();
             fKeys = new List<TKey>();
@@ -68,46 +70,22 @@ namespace Dopamine.Core.Helpers
         /// <summary>
         /// The number of elements in the dictionary.
         /// </summary>
-        public int Count
-        {
-            get
-            {
-                return fDictionary.Count;
-            }
-        }
+        public int Count => fDictionary.Count;
 
         /// <summary>
         /// This dictionary is not read only.
         /// </summary>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         /// <summary>
         /// The keys of the dictionary, in order.
         /// </summary>
-        public ICollection<TKey> Keys
-        {
-            get
-            {
-                return fKeys.AsReadOnly();
-            }
-        }
+        public ICollection<TKey> Keys => fKeys.AsReadOnly();
 
         /// <summary>
         /// The values in the dictionary, in order.
         /// </summary>
-        public ICollection<TValue> Values
-        {
-            get
-            {
-                return fKeys.Select(key => fDictionary[key]).ToArray();
-            }
-        }
+        public ICollection<TValue> Values => fKeys.Select(key => fDictionary[key]).ToArray();
 
         /// <summary>
         /// The value at the given index.
@@ -131,10 +109,7 @@ namespace Dopamine.Core.Helpers
         /// </summary>
         public TValue this[TKey key]
         {
-            get
-            {
-                return fDictionary[key];
-            }
+            get => fDictionary[key];
             set
             {
                 if (!fDictionary.ContainsKey(key))
@@ -272,13 +247,19 @@ namespace Dopamine.Core.Helpers
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int index)
         {
             if (array == null)
+            {
                 throw new ArgumentNullException("array");
+            }
 
             if (index < 0)
+            {
                 throw new ArgumentOutOfRangeException("index", "Must be greater than or equal to zero.");
+            }
 
             if (index + fDictionary.Count > array.Length)
+            {
                 throw new ArgumentException("array", "Array is too small");
+            }
 
             foreach (var pair in this)
             {

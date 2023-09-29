@@ -536,7 +536,7 @@ namespace Dopamine.ViewModels.FullPlayer.Collection
                 return;
             }
 
-            if(this.SelectedTracks == null || this.SelectedTracks.Count == 0)
+            if (this.SelectedTracks == null || this.SelectedTracks.Count == 0)
             {
                 return;
             }

@@ -19,7 +19,7 @@ namespace Dopamine.Services.I18n
         private List<Language> languages;
         private Language defaultLanguage;
         private GentleFolderWatcher watcher;
-   
+
         public I18nService()
         {
             // Initialize the CustomLanguages directory
@@ -87,7 +87,7 @@ namespace Dopamine.Services.I18n
 
             return this.defaultLanguage;
         }
-    
+
         private Language CreateLanguage(string languageFile)
         {
             XDocument xdoc = XDocument.Load(languageFile);
@@ -184,7 +184,7 @@ namespace Dopamine.Services.I18n
                 return this.defaultLanguage.Texts[key];
             }
         }
-     
+
         public event EventHandler LanguagesChanged = delegate { };
         public event EventHandler LanguageChanged = delegate { };
     }

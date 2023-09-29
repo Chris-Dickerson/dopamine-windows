@@ -1,8 +1,8 @@
 ﻿using Digimezzo.Foundation.WPF.Controls;
-using Dopamine.ViewModels.Common.Base;
 using Dopamine.Core.Enums;
 using Dopamine.Core.Prism;
 using Dopamine.Services.Playback;
+using Dopamine.ViewModels.Common.Base;
 using Dopamine.Views.NowPlaying;
 using Prism.Events;
 using Prism.Regions;
@@ -36,7 +36,7 @@ namespace Dopamine.ViewModels.NowPlaying
         private void NagivateToSelectedPage(SlideDirection direction, NowPlayingSubPage page)
         {
             this.Direction = direction;
-           
+
             switch (page)
             {
                 case NowPlayingSubPage.ArtistInformation:

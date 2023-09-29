@@ -11,7 +11,7 @@ namespace Dopamine.Views.Common
         public static readonly DependencyProperty TextAlignmentProperty = DependencyProperty.Register("TextAlignment", typeof(TextAlignment), typeof(CoverPlaybackInfoControl), new PropertyMetadata(TextAlignment.Left));
         public static readonly DependencyProperty TitleFontSizeProperty = DependencyProperty.Register("TitleFontSize", typeof(double), typeof(CoverPlaybackInfoControl), new PropertyMetadata(Constants.GlobalFontSize));
         public static readonly DependencyProperty ArtistFontSizeProperty = DependencyProperty.Register("ArtistFontSize", typeof(double), typeof(CoverPlaybackInfoControl), new PropertyMetadata(Constants.GlobalFontSize));
-  
+
         public new object DataContext
         {
             get { return base.DataContext; }
@@ -38,7 +38,7 @@ namespace Dopamine.Views.Common
 
             set { SetValue(ArtistFontSizeProperty, value); }
         }
-      
+
         public CoverPlaybackInfoControl()
         {
             InitializeComponent();

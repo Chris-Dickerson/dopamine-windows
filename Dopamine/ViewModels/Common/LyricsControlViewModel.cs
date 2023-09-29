@@ -7,19 +7,19 @@ using Dopamine.Core.Helpers;
 using Dopamine.Core.Prism;
 using Dopamine.Data.Entities;
 using Dopamine.Data.Metadata;
+using Dopamine.Services.Entities;
 using Dopamine.Services.I18n;
 using Dopamine.Services.Metadata;
 using Dopamine.Services.Playback;
 using Dopamine.ViewModels.Common.Base;
 using Prism.Commands;
 using Prism.Events;
+using Prism.Ioc;
 using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
-using Prism.Ioc;
-using Dopamine.Services.Entities;
 
 namespace Dopamine.ViewModels.Common
 {
@@ -95,7 +95,7 @@ namespace Dopamine.ViewModels.Common
             this.metadataService.MetadataChanged += (_) => this.RestartRefreshTimer();
 
             I18NService_LanguageChanged(null, null);
-            this.i18NService.LanguageChanged += I18NService_LanguageChanged;                  
+            this.i18NService.LanguageChanged += I18NService_LanguageChanged;
 
             SettingsClient.SettingChanged += (_, e) =>
             {

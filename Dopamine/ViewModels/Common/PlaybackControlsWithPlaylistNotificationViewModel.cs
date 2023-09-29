@@ -19,9 +19,9 @@ namespace Dopamine.ViewModels.Common
         private bool showAddedTracksToPlaylistText;
         private Timer showAddedTracksToPlaylistTextTimer;
         private int showAddedTracksToPlaylistTextSeconds = 2;
-    
+
         public DelegateCommand PlaylistNotificationMouseEnterCommand { get; set; }
-      
+
         public string AddedTracksToPlaylistText
         {
             get { return this.addedTracksToPlaylistText; }
@@ -42,7 +42,7 @@ namespace Dopamine.ViewModels.Common
                 }
             }
         }
-      
+
         public PlaybackControlsWithPlaylistNotificationViewModel(IPlaybackService playbackService, IPlaylistService playlistService, IBlacklistService blacklistService)
         {
             this.playbackService = playbackService;
@@ -97,7 +97,7 @@ namespace Dopamine.ViewModels.Common
             this.showAddedTracksToPlaylistTextTimer.Interval = TimeSpan.FromSeconds(this.showAddedTracksToPlaylistTextSeconds).TotalMilliseconds;
             this.showAddedTracksToPlaylistTextTimer.Elapsed += ShowAddedTracksToPlaylistTextTimerElapsedHandler;
         }
-     
+
         private void ShowAddedTracksToPlaylistTextTimerElapsedHandler(object sender, ElapsedEventArgs e)
         {
             this.HideText();

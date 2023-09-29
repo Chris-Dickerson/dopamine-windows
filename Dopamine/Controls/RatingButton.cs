@@ -22,7 +22,7 @@ namespace Dopamine.Controls
             set { SetValue(RatingProperty, value); }
         }
 
-        public static readonly DependencyProperty RatingProperty = 
+        public static readonly DependencyProperty RatingProperty =
             DependencyProperty.Register(nameof(Rating), typeof(int), typeof(RatingButton), new PropertyMetadata(null));
 
         public new double FontSize
@@ -111,7 +111,7 @@ namespace Dopamine.Controls
 
         private void ApplyRating(int newRating)
         {
-            if(this.Rating.Equals(newRating))
+            if (this.Rating.Equals(newRating))
             {
                 // Clear rating
                 this.Rating = 0;

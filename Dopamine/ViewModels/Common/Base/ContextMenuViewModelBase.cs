@@ -1,10 +1,11 @@
 ﻿using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Data.Entities;
-using Dopamine.ViewModels;
 using Dopamine.Services.Dialog;
+using Dopamine.Services.Entities;
 using Dopamine.Services.Playback;
 using Dopamine.Services.Playlist;
 using Dopamine.Services.Provider;
+using Dopamine.ViewModels;
 using Prism.Commands;
 using Prism.Ioc;
 using Prism.Mvvm;
@@ -12,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Dopamine.Services.Entities;
 
 namespace Dopamine.ViewModels.Common.Base
 {
@@ -114,7 +114,7 @@ namespace Dopamine.ViewModels.Common.Base
             {
                 // Unbind to improve UI performance
                 this.ContextMenuPlaylists = null;
-                
+
                 // Populate an ObservableCollection
                 var playlistViewModels = new ObservableCollection<PlaylistViewModel>(await this.playlistService.GetStaticPlaylistsAsync());
 

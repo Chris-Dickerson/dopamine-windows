@@ -1,7 +1,6 @@
 ﻿using Digimezzo.Foundation.Core.IO;
 using Digimezzo.Foundation.Core.Logging;
 using Digimezzo.Foundation.Core.Settings;
-using Dopamine.Services.Provider;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +14,7 @@ namespace Dopamine.Services.Provider
     {
         private string providersXmlPath;
         private XDocument providersDocument;
-    
+
         public ProviderService()
         {
             this.providersXmlPath = Path.Combine(SettingsClient.ApplicationFolder(), "Providers.xml");
@@ -26,9 +25,9 @@ namespace Dopamine.Services.Provider
             // Load the XML containing the Providers
             this.LoadProvidersXml();
         }
-    
+
         public event EventHandler SearchProvidersChanged = delegate { };
-      
+
         private void CreateProvidersXml()
         {
             // Only create this file if it doesn't yet exist. That allows the user to provide 
@@ -138,7 +137,7 @@ namespace Dopamine.Services.Provider
 
                 url = provider.Url + string.Join(provider.Separator, searchArguments).Replace("&", provider.Separator); // Recplace "&" because Youtube forgets the part of he URL that comes after "&"
 
-                Actions.TryOpenLink(url); 
+                Actions.TryOpenLink(url);
             }
             catch (Exception ex)
             {
@@ -188,7 +187,7 @@ namespace Dopamine.Services.Provider
                 searchProvider.SetElementValue("Id", Guid.NewGuid().ToString());
                 searchProvider.SetElementValue("Name", provider.Name);
                 searchProvider.SetElementValue("Url", provider.Url);
-                searchProvider.SetElementValue("Separator", provider.Separator != null ? provider.Separator : string.Empty);
+                searchProvider.SetElementValue("Separator", provider.Separator ?? string.Empty);
 
                 this.providersDocument.Element("Providers").Element("SearchProviders").Add(searchProvider);
 
@@ -221,7 +220,10 @@ namespace Dopamine.Services.Provider
                                                     where i.Value == provider.Id
                                                     select p).FirstOrDefault();
 
-                if (providerElementToUpdate == null) return UpdateSearchProviderResult.Failure;
+                if (providerElementToUpdate == null)
+                {
+                    return UpdateSearchProviderResult.Failure;
+                }
 
                 providerElementToUpdate.SetElementValue("Name", provider.Name);
                 providerElementToUpdate.SetElementValue("Url", provider.Url);

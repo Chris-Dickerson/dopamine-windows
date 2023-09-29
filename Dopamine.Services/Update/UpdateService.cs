@@ -5,7 +5,6 @@ using Digimezzo.Foundation.Core.Packaging;
 using Digimezzo.Foundation.Core.Settings;
 using Dopamine.Core.Base;
 using Dopamine.Core.IO;
-using Dopamine.Services.Update;
 using Ionic.Zip;
 using Newtonsoft.Json;
 using System;

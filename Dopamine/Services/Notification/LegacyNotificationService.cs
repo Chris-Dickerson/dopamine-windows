@@ -25,7 +25,7 @@ namespace Dopamine.Services.Notification
         private bool showNotificationWhenPausing;
         private bool showNotificationWhenResuming;
         private bool showNotificationControls;
-    
+
         public IPlaybackService PlaybackService => this.playbackService;
         public IMetadataService MetadataService => this.metadataService;
 
@@ -94,7 +94,7 @@ namespace Dopamine.Services.Notification
             this.playbackService.PlaybackPaused += this.PlaybackPausedHandler;
             this.playbackService.PlaybackResumed += this.PlaybackResumedHandler;
         }
-    
+
         protected async void PlaybackResumedHandler(object sender, EventArgs e)
         {
             if (this.showNotificationWhenResuming)
@@ -128,7 +128,7 @@ namespace Dopamine.Services.Notification
 
             return true;
         }
-     
+
         private void ShowMainWindow(Object sender, EventArgs e)
         {
             if (this.mainWindow != null)
@@ -167,7 +167,7 @@ namespace Dopamine.Services.Notification
                     throw new ArgumentOutOfRangeException();
             }
         }
-       
+
         public async Task ShowNotificationAsync()
         {
             if (this.notification != null)

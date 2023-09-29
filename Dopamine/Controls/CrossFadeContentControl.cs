@@ -33,7 +33,7 @@ namespace Dopamine.Controls
 
             base.OnApplyTemplate();
         }
-        
+
         protected override void OnContentChanged(object oldContent, object newContent)
         {
             try

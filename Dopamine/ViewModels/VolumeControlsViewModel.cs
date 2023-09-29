@@ -10,10 +10,10 @@ namespace Dopamine.ViewModels
         private IPlaybackService playBackService;
         private float volumeValue;
         private bool mute;
-  
+
         public DelegateCommand MuteCommand { get; set; }
         public DelegateCommand UnmuteCommand { get; set; }
-     
+
         public float VolumeValue
         {
             get { return this.volumeValue; }
@@ -38,7 +38,7 @@ namespace Dopamine.ViewModels
                 // Empty on purpose. OnPropertyChanged is fired in GetPlaybackServiceMute.
             }
         }
-    
+
         public VolumeControlsViewModel(IPlaybackService playBackService)
         {
             this.playBackService = playBackService;
@@ -57,7 +57,7 @@ namespace Dopamine.ViewModels
             // ----------------
             this.GetPlaybackServiceMute();
         }
-     
+
         private void SetPlayBackServiceVolume(float iVolume)
         {
             this.playBackService.Volume = iVolume;

@@ -2,7 +2,6 @@
 using Digimezzo.Foundation.Core.Settings;
 using Dopamine.Core.Base;
 using Dopamine.Services.Playback;
-using Dopamine.Services.Taskbar;
 using Prism.Mvvm;
 using System;
 using System.Windows;
@@ -22,32 +21,32 @@ namespace Dopamine.Services.Taskbar
 
         public string Description
         {
-            get { return this.description; }
-            private set { SetProperty<string>(ref this.description, value); }
+            get => this.description;
+            private set => SetProperty<string>(ref this.description, value);
         }
 
         public TaskbarItemProgressState ProgressState
         {
-            get { return this.progressState; }
-            private set { SetProperty<TaskbarItemProgressState>(ref this.progressState, value); }
+            get => this.progressState;
+            private set => SetProperty<TaskbarItemProgressState>(ref this.progressState, value);
         }
 
         public double ProgressValue
         {
-            get { return this.progressValue; }
-            private set { SetProperty<double>(ref this.progressValue, value); }
+            get => this.progressValue;
+            private set => SetProperty<double>(ref this.progressValue, value);
         }
 
         public string PlayPauseText
         {
-            get { return this.playPauseText; }
-            private set { SetProperty<string>(ref this.playPauseText, value); }
+            get => this.playPauseText;
+            private set => SetProperty<string>(ref this.playPauseText, value);
         }
 
         public ImageSource PlayPauseIcon
         {
-            get { return this.playPauseIcon; }
-            private set { SetProperty<ImageSource>(ref this.playPauseIcon, value); }
+            get => this.playPauseIcon;
+            private set => SetProperty<ImageSource>(ref this.playPauseIcon, value);
         }
 
         public TaskbarService(IPlaybackService playbackService)

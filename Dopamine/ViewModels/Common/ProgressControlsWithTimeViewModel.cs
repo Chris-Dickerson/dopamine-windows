@@ -1,6 +1,6 @@
-﻿using Dopamine.Core.Utils;
+﻿using CommonServiceLocator;
+using Dopamine.Core.Utils;
 using Dopamine.Services.Playback;
-using CommonServiceLocator;
 using System;
 
 namespace Dopamine.ViewModels.Common
@@ -9,7 +9,7 @@ namespace Dopamine.ViewModels.Common
     {
         private string currentTime;
         private string totalTime;
-      
+
         public string CurrentTime
         {
             get { return this.currentTime; }
@@ -21,13 +21,13 @@ namespace Dopamine.ViewModels.Common
             get { return this.totalTime; }
             set { SetProperty<string>(ref this.totalTime, value); }
         }
-  
+
         public ProgressControlsWithTimeViewModel() : base(ServiceLocator.Current.GetInstance<IPlaybackService>())
         {
             this.CurrentTime = FormatUtils.FormatTime(new TimeSpan(0));
             this.TotalTime = FormatUtils.FormatTime(new TimeSpan(0));
         }
-    
+
         protected override void GetPlayBackServiceProgress()
         {
             base.GetPlayBackServiceProgress();

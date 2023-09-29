@@ -8,11 +8,8 @@ namespace Dopamine.Data.Metadata
         private string value;
         private string[] values;
         private bool isValueChanged;
-       
-        public bool IsValueChanged
-        {
-            get { return this.isValueChanged; }
-        }
+
+        public bool IsValueChanged => this.isValueChanged;
 
         public bool IsNumeric
         {
@@ -23,10 +20,10 @@ namespace Dopamine.Data.Metadata
                 return this.IsValueChanged & !string.IsNullOrEmpty(this.Value) ? int.TryParse(this.Value, out parsedValue) ? parsedValue >= 0 : false : true;
             }
         }
-    
+
         public string Value
         {
-            get { return this.value; }
+            get => this.value;
 
             set
             {
@@ -39,7 +36,7 @@ namespace Dopamine.Data.Metadata
 
         public string[] Values
         {
-            get { return this.values; }
+            get => this.values;
 
             set
             {
@@ -49,14 +46,14 @@ namespace Dopamine.Data.Metadata
                 this.OnPropertiesChanged();
             }
         }
-       
+
         public MetadataValue()
         {
         }
 
         public MetadataValue(string value)
         {
-            this.value = value != null ? value : string.Empty;
+            this.value = value ?? string.Empty;
             this.values = this.ConvertToValues(value);
             this.OnPropertiesChanged();
         }
@@ -74,7 +71,7 @@ namespace Dopamine.Data.Metadata
             this.value = ConvertToValue(values);
             this.OnPropertiesChanged();
         }
-   
+
         private void OnPropertiesChanged()
         {
             RaisePropertyChanged(nameof(this.Value));

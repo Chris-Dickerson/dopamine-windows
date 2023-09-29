@@ -18,7 +18,7 @@ namespace Dopamine.ViewModels.Common.Base
         public NowPlayingViewModelBase(IPlaybackService playbackService)
         {
             this.playbackService = playbackService;
-            this.playbackService.PlaybackSuccess += (_,__) => this.SetNowPlaying();
+            this.playbackService.PlaybackSuccess += (_, __) => this.SetNowPlaying();
             this.playbackService.QueueChanged += (_, __) => this.SetNowPlaying();
             this.SetNowPlaying();
         }

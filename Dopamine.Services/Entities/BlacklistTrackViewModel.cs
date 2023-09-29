@@ -1,5 +1,4 @@
-﻿using Digimezzo.Foundation.Core.Utils;
-using Dopamine.Data.Entities;
+﻿using Dopamine.Data.Entities;
 using Prism.Mvvm;
 
 namespace Dopamine.Services.Entities

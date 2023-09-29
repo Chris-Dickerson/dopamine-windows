@@ -39,17 +39,17 @@ namespace Dopamine.ViewModels.Common
         private double band7;
         private double band8;
         private double band9;
-     
+
         public DelegateCommand ResetCommand { get; set; }
         public DelegateCommand SaveCommand { get; set; }
         public DelegateCommand DeleteCommand { get; set; }
-      
+
         public double Band0
         {
             get { return this.band0; }
             set
             {
-                SetProperty<double>(ref this.band0, Math.Round( value,1));
+                SetProperty<double>(ref this.band0, Math.Round(value, 1));
                 RaisePropertyChanged(nameof(this.Band0Label));
                 this.ApplyManualPreset();
             }
@@ -233,10 +233,10 @@ namespace Dopamine.ViewModels.Common
             {
                 SetProperty<bool>(ref this.isEqualizerEnabled, value);
                 this.playbackService.SetIsEqualizerEnabledAsync(value);
-                SettingsClient.Set<bool>("Equalizer", "IsEnabled",value);
+                SettingsClient.Set<bool>("Equalizer", "IsEnabled", value);
             }
         }
-    
+
         public EqualizerControlViewModel(IPlaybackService playbackService, IEqualizerService equalizerService, IDialogService dialogService)
         {
             // Variables
@@ -273,7 +273,7 @@ namespace Dopamine.ViewModels.Common
             // Initialize
             this.InitializeAsync();
         }
-   
+
         private void ApplySelectedPreset()
         {
             SettingsClient.Set<string>("Equalizer", "SelectedPreset", this.SelectedPreset.Name);
@@ -374,7 +374,8 @@ namespace Dopamine.ViewModels.Common
 
                         try
                         {
-                            await Task.Run(() => {
+                            await Task.Run(() =>
+                            {
                                 System.IO.File.WriteAllLines(dlg.FileName, this.SelectedPreset.ToValueString().Split(';'));
                             });
                         }
@@ -415,7 +416,8 @@ namespace Dopamine.ViewModels.Common
             {
                 try
                 {
-                    await Task.Run(() => {
+                    await Task.Run(() =>
+                    {
                         string presetPath = System.IO.Path.Combine(WindowsPaths.AppData(), ProductInformation.ApplicationName, ApplicationPaths.EqualizerFolder, this.SelectedPreset.Name + FileFormats.DEQ);
                         System.IO.File.Delete(presetPath);
                     });

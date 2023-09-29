@@ -35,12 +35,12 @@ namespace Dopamine.Tests
             bool isSuccess = await Core.Api.Lastfm.LastfmApi.TrackScrobble(sessionKey, "Coldplay", "Viva La Vida", "", DateTime.Now);
 
             Assert.IsTrue(isSuccess);
-       }
+        }
 
         [TestMethod(), TestCategory(TestCategories.LastfmApi)]
         public async Task ArtistGetInfoTest()
         {
-            LastFmArtist lfmArtist = await Core.Api.Lastfm.LastfmApi.ArtistGetInfo("Coldplay",false, string.Empty);
+            LastFmArtist lfmArtist = await Core.Api.Lastfm.LastfmApi.ArtistGetInfo("Coldplay", false, string.Empty);
 
             Assert.IsTrue(!string.IsNullOrEmpty(lfmArtist.Name) & !string.IsNullOrEmpty(lfmArtist.Url));
         }
@@ -48,7 +48,7 @@ namespace Dopamine.Tests
         [TestMethod(), TestCategory(TestCategories.LastfmApi)]
         public async Task AlbumGetInfoTest()
         {
-            LastFmAlbum lfmAlbum = await Core.Api.Lastfm.LastfmApi.AlbumGetInfo("Coldplay", "Viva la Vida or Death and All His Friends",false, string.Empty);
+            LastFmAlbum lfmAlbum = await Core.Api.Lastfm.LastfmApi.AlbumGetInfo("Coldplay", "Viva la Vida or Death and All His Friends", false, string.Empty);
 
             Assert.IsTrue(!string.IsNullOrEmpty(lfmAlbum.Name) & !string.IsNullOrEmpty(lfmAlbum.Url));
         }

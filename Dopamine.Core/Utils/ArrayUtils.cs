@@ -12,10 +12,10 @@ namespace Dopamine.Core.Utils
             for (int i = 0; i < array.Length; i++)
             {
                 double doubleValue = default(double);
-                double.TryParse(array[i],NumberStyles.Number, CultureInfo.InvariantCulture, out doubleValue);
+                double.TryParse(array[i], NumberStyles.Number, CultureInfo.InvariantCulture, out doubleValue);
                 values.Add(doubleValue);
             }
-            
+
             return values.ToArray();
         }
     }

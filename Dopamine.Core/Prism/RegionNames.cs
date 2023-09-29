@@ -1,4 +1,4 @@
-﻿    namespace Dopamine.Core.Prism
+﻿namespace Dopamine.Core.Prism
 {
     public sealed class RegionNames
     {

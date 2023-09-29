@@ -23,9 +23,9 @@ namespace Dopamine.Controls
             set { SetValue(HasFocusProperty, value); }
         }
 
-        public static readonly DependencyProperty HasTextProperty = 
+        public static readonly DependencyProperty HasTextProperty =
             DependencyProperty.Register(nameof(HasText), typeof(bool), typeof(SearchBox), new PropertyMetadata(false));
-        public static readonly DependencyProperty HasFocusProperty = 
+        public static readonly DependencyProperty HasFocusProperty =
             DependencyProperty.Register(nameof(HasFocus), typeof(bool), typeof(SearchBox), new PropertyMetadata(false));
 
         static SearchBox()

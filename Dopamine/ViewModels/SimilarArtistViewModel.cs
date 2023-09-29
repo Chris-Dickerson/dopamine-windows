@@ -7,7 +7,7 @@ namespace Dopamine.ViewModels
         private string name;
         private string url;
         private string imageUrl;
-   
+
         public string Name
         {
             get { return this.name; }

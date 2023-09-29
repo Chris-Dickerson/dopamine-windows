@@ -17,6 +17,6 @@ namespace Dopamine.ViewModels
 
                 return $"Updating {ProductInformation.ApplicationName}";
             }
-        }   
+        }
     }
 }

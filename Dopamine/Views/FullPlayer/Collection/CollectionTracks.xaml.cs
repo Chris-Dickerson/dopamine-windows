@@ -2,22 +2,22 @@
 using Digimezzo.Foundation.Core.Logging;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Base;
+using Dopamine.Core.Prism;
+using Dopamine.Services.Entities;
+using Dopamine.Services.Utils;
 using Dopamine.Utils;
 using Dopamine.ViewModels;
+using Dopamine.ViewModels.FullPlayer.Collection;
 using Dopamine.Views.Common.Base;
-using Dopamine.Core.Prism;
 using Prism.Commands;
 using System;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Dopamine.Services.Entities;
-using Dopamine.Services.Utils;
-using System.Reflection;
-using System.ComponentModel;
-using Dopamine.ViewModels.FullPlayer.Collection;
 
 namespace Dopamine.Views.FullPlayer.Collection
 {
@@ -120,7 +120,7 @@ namespace Dopamine.Views.FullPlayer.Collection
         {
             DataGridColumn column = dataGrid.Columns.Where(x => x.SortMemberPath.Equals(sortMemberPath)).FirstOrDefault();
 
-            if(column == null)
+            if (column == null)
             {
                 return;
             }

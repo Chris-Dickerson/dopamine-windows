@@ -1,5 +1,5 @@
-﻿using Dopamine.Views.Common.Base;
-using Dopamine.Core.Prism;
+﻿using Dopamine.Core.Prism;
+using Dopamine.Views.Common.Base;
 using Prism.Commands;
 using System.Windows;
 using System.Windows.Input;
@@ -18,7 +18,7 @@ namespace Dopamine.Views.Common
             // PubSub Events
             this.eventAggregator.GetEvent<ScrollToPlayingTrack>().Subscribe(async (_) => await this.ScrollToPlayingTrackAsync(this.ListBoxTracks));
         }
-      
+
         private async void ListBoxTracks_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             await this.ActionHandler(sender, e.OriginalSource as DependencyObject, false);

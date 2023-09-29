@@ -2,9 +2,10 @@
 using Dopamine.Core.Api.Lyrics;
 using Dopamine.Data.Entities;
 using Dopamine.Data.Metadata;
+using Dopamine.Services.Entities;
+using Dopamine.Services.Lyrics;
 using Dopamine.Services.Metadata;
 using Dopamine.Services.Provider;
-using Dopamine.Services.Lyrics;
 using Dopamine.ViewModels.Common.Base;
 using Prism.Commands;
 using Prism.Ioc;
@@ -12,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
-using Dopamine.Services.Entities;
 
 namespace Dopamine.ViewModels.Common
 {

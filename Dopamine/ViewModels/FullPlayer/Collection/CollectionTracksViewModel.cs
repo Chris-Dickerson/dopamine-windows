@@ -157,7 +157,7 @@ namespace Dopamine.ViewModels.FullPlayer.Collection
             // Commands
             this.ChooseColumnsCommand = new DelegateCommand(this.ChooseColumns);
             this.RemoveSelectedTracksCommand = new DelegateCommand(async () => await this.RemoveTracksFromCollectionAsync(this.SelectedTracks), () => !this.IsIndexing);
-            
+
             // Show only the columns which are visible
             this.GetVisibleColumns();
         }

@@ -27,13 +27,13 @@ namespace Dopamine.Controls
             set { SetValue(CheckMarkBrushProperty, value); }
         }
 
-        public static readonly DependencyProperty CheckBackgroundProperty = 
+        public static readonly DependencyProperty CheckBackgroundProperty =
             DependencyProperty.Register("CheckBackground", typeof(Brush), typeof(ListCheckBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty CheckBorderBrushProperty = 
+        public static readonly DependencyProperty CheckBorderBrushProperty =
             DependencyProperty.Register("CheckBorderBrush", typeof(Brush), typeof(ListCheckBox), new PropertyMetadata(null));
-        public static readonly DependencyProperty CheckMarkBrushProperty = 
+        public static readonly DependencyProperty CheckMarkBrushProperty =
             DependencyProperty.Register("CheckMarkBrush", typeof(Brush), typeof(ListCheckBox), new PropertyMetadata(null));
-       
+
         static ListCheckBox()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ListCheckBox), new FrameworkPropertyMetadata(typeof(ListCheckBox)));

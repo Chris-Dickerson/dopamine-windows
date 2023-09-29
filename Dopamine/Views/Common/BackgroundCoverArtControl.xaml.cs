@@ -8,7 +8,7 @@ namespace Dopamine.Views.Common
         {
             InitializeComponent();
         }
-   
+
         private void UserControl_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
         {
             if (this.ActualWidth == 0 | this.ActualHeight == 0) return;

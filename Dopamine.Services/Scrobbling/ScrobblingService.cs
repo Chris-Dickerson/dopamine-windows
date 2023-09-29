@@ -23,41 +23,23 @@ namespace Dopamine.Services.Scrobbling
 
         public SignInState SignInState
         {
-            get
-            {
-                return this.signInState;
-            }
+            get => this.signInState;
 
-            set
-            {
-                this.signInState = value;
-            }
+            set => this.signInState = value;
         }
 
         public string Username
         {
-            get
-            {
-                return this.username;
-            }
+            get => this.username;
 
-            set
-            {
-                this.username = value;
-            }
+            set => this.username = value;
         }
 
         public string Password
         {
-            get
-            {
-                return this.password;
-            }
+            get => this.password;
 
-            set
-            {
-                this.password = value;
-            }
+            set => this.password = value;
         }
 
         public ScrobblingService(IPlaybackService playbackService)

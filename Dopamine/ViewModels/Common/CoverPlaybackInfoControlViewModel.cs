@@ -8,7 +8,7 @@ namespace Dopamine.ViewModels.Common
     public class CoverPlaybackInfoControlViewModel : PlaybackInfoControlViewModel
     {
         public CoverPlaybackInfoControlViewModel() : base(
-            ServiceLocator.Current.GetInstance<IPlaybackService>(), 
+            ServiceLocator.Current.GetInstance<IPlaybackService>(),
             ServiceLocator.Current.GetInstance<IMetadataService>(),
             ServiceLocator.Current.GetInstance<IScrobblingService>())
         {

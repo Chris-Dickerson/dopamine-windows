@@ -17,14 +17,14 @@ namespace Dopamine.ViewModels
         private bool shuffle;
         private bool isLoadingTrack;
         private Timer isLoadingTrackTimer = new Timer();
-   
+
         public DelegateCommand PauseCommand { get; set; }
         public DelegateCommand PreviousCommand { get; set; }
         public DelegateCommand NextCommand { get; set; }
         public DelegateCommand LoopCommand { get; set; }
         public DelegateCommand ShuffleCommand { get; set; }
         public DelegateCommand PlayCommand { get; set; }
-       
+
         public bool ShowPause
         {
             get { return this.showPause; }
@@ -61,7 +61,7 @@ namespace Dopamine.ViewModels
             get { return this.isLoadingTrack; }
             set { SetProperty<bool>(ref this.isLoadingTrack, value); }
         }
-    
+
         public PlaybackControlsViewModel(IPlaybackService playbackService, IEventAggregator eventAggregator)
         {
             // Injection
@@ -81,11 +81,11 @@ namespace Dopamine.ViewModels
             this.PlayCommand = new DelegateCommand(async () => await this.playbackService.PlayOrPauseAsync());
 
             // Event handlers
-            this.playbackService.PlaybackFailed += (_,__) => this.ShowPause = false;
+            this.playbackService.PlaybackFailed += (_, __) => this.ShowPause = false;
             this.playbackService.PlaybackPaused += (_, __) => this.ShowPause = false;
             this.playbackService.PlaybackResumed += (_, __) => this.ShowPause = true;
             this.playbackService.PlaybackStopped += (_, __) => this.ShowPause = false;
-            this.playbackService.PlaybackSuccess += (_,__) => this.ShowPause = true;
+            this.playbackService.PlaybackSuccess += (_, __) => this.ShowPause = true;
             this.playbackService.PlaybackLoopChanged += (_, __) => this.GetPlayBackServiceLoop();
             this.playbackService.PlaybackShuffleChanged += (_, __) => this.GetPlayBackServiceShuffle();
 
@@ -117,12 +117,12 @@ namespace Dopamine.ViewModels
                 this.ShowPause = false;
             }
         }
-    
+
         private void IsLoadingTrackTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             this.IsLoadingTrack = true;
         }
-    
+
         private void SetPlayBackServiceLoop()
         {
             switch (this.loopMode)

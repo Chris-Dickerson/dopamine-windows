@@ -87,7 +87,7 @@ namespace Dopamine.ViewModels.FullPlayer.Collection
 
             // Events
             this.foldersService.FoldersChanged += FoldersService_FoldersChanged;
-            this.playbackService.PlaybackFailed += (async(_,__) => await this.foldersService.SetPlayingSubFolderAsync(this.Subfolders));
+            this.playbackService.PlaybackFailed += (async (_, __) => await this.foldersService.SetPlayingSubFolderAsync(this.Subfolders));
             this.playbackService.PlaybackPaused += (async (_, __) => await this.foldersService.SetPlayingSubFolderAsync(this.Subfolders));
             this.playbackService.PlaybackResumed += (async (_, __) => await this.foldersService.SetPlayingSubFolderAsync(this.Subfolders));
             this.playbackService.PlaybackSuccess += (async (_, __) => await this.foldersService.SetPlayingSubFolderAsync(this.Subfolders));

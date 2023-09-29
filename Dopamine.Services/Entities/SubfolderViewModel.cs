@@ -18,14 +18,14 @@ namespace Dopamine.Services.Entities
 
         public bool IsPlaying
         {
-            get { return this.isPlaying; }
-            set { SetProperty<bool>(ref this.isPlaying, value); }
+            get => this.isPlaying;
+            set => SetProperty<bool>(ref this.isPlaying, value);
         }
 
         public bool IsPaused
         {
-            get { return this.isPaused; }
-            set { SetProperty<bool>(ref this.isPaused, value); }
+            get => this.isPaused;
+            set => SetProperty<bool>(ref this.isPaused, value);
         }
 
         public SubfolderViewModel(string path, bool isGoToParent)

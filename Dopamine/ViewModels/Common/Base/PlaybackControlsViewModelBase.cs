@@ -1,8 +1,8 @@
 ﻿using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Utils;
-using Dopamine.ViewModels;
 using Dopamine.Services.Dialog;
 using Dopamine.Services.Playback;
+using Dopamine.ViewModels;
 using Dopamine.Views.Common;
 using Prism.Commands;
 using Prism.Ioc;

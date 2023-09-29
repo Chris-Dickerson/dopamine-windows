@@ -25,10 +25,7 @@ namespace Dopamine.Services.Playback
             this.trackRepository = trackRepository;
         }
 
-        public IList<TrackViewModel> Queue
-        {
-            get { return this.queue; }
-        }
+        public IList<TrackViewModel> Queue => this.queue;
 
         private List<int> GetQueueIndices()
         {
@@ -442,7 +439,7 @@ namespace Dopamine.Services.Playback
 
         public void SetCurrentTrack(string path)
         {
-            this.currentTrack = this.queue.Where(x=> x.SafePath.Equals(path.ToSafePath())).FirstOrDefault();
+            this.currentTrack = this.queue.Where(x => x.SafePath.Equals(path.ToSafePath())).FirstOrDefault();
         }
 
         public async Task<bool> UpdateQueueOrderAsync(IList<TrackViewModel> tracks, bool isShuffled)
@@ -525,13 +522,10 @@ namespace Dopamine.Services.Playback
                         foreach (TrackViewModel trackViewModel in this.queue)
                         {
                             trackViewModel.Refresh();
-                        } 
+                        }
                     }
 
-                    if (this.currentTrack != null)
-                    {
-                        this.currentTrack.Refresh();
-                    }
+                    this.currentTrack?.Refresh();
                 }
             });
         }

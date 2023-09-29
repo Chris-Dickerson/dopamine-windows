@@ -119,7 +119,7 @@ namespace Dopamine.Services.Folders
         public async Task<RemoveFolderResult> RemoveFolderAsync(long folderId)
         {
             RemoveFolderResult result = await this.folderRepository.RemoveFolderAsync(folderId);
-            
+
             return result;
         }
 

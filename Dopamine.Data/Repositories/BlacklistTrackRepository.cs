@@ -95,7 +95,8 @@ namespace Dopamine.Data.Repositories
             });
         }
 
-        public async Task<bool> IsInBlacklistAsync(string safePath) {
+        public async Task<bool> IsInBlacklistAsync(string safePath)
+        {
             long numberInBlacklist = 0;
 
             await Task.Run(() =>

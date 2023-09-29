@@ -1,6 +1,6 @@
-﻿using Dopamine.ViewModels;
+﻿using CommonServiceLocator;
 using Dopamine.Services.Playback;
-using CommonServiceLocator;
+using Dopamine.ViewModels;
 
 namespace Dopamine.ViewModels.Common
 {

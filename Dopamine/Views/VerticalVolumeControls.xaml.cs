@@ -1,7 +1,7 @@
-﻿using Digimezzo.Foundation.Core.Logging;
-using Dopamine.Views.Base;
+﻿using CommonServiceLocator;
+using Digimezzo.Foundation.Core.Logging;
 using Dopamine.Services.Playback;
-using CommonServiceLocator;
+using Dopamine.Views.Base;
 using System;
 using System.Windows.Input;
 
@@ -16,7 +16,7 @@ namespace Dopamine.Views
             get { return base.DataContext; }
             set { base.DataContext = value; }
         }
-   
+
         public VerticalVolumeControls()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace Dopamine.Views
             // So for now there is no better solution than to find the EventAggregator by using the ServiceLocator.
             this.playBackService = ServiceLocator.Current.GetInstance<IPlaybackService>();
         }
-    
+
         private void StackPanel_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             try

@@ -1,5 +1,5 @@
-﻿using Dopamine.Services.Playback;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
+using Dopamine.Services.Playback;
 using Prism.Commands;
 using Prism.Events;
 using System;
@@ -14,10 +14,10 @@ namespace Dopamine.Views.Common.Base
     {
         protected IEventAggregator eventAggregator;
         protected IPlaybackService playbackService;
-    
+
         public DelegateCommand ViewInExplorerCommand { get; set; }
         public DelegateCommand JumpToPlayingTrackCommand { get; set; }
-       
+
         public CommonViewBase()
         {
             // We need a parameterless constructor to be able to use this UserControl in other UserControls without dependency injection.
@@ -25,7 +25,7 @@ namespace Dopamine.Views.Common.Base
             this.eventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
             this.playbackService = ServiceLocator.Current.GetInstance<IPlaybackService>();
         }
-     
+
         protected abstract Task KeyUpHandlerAsync(object sender, KeyEventArgs e);
         protected abstract Task ActionHandler(Object sender, DependencyObject source, bool enqueue);
         protected abstract Task ScrollToPlayingTrackAsync(Object sender);

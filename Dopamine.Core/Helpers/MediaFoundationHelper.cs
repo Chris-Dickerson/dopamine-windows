@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Digimezzo.Foundation.Core.Logging;
+using System;
 using System.IO;
-using Digimezzo.Foundation.Core.Logging;
 
 namespace Dopamine.Core.Helpers
 {

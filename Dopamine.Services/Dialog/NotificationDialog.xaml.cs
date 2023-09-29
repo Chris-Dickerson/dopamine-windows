@@ -32,7 +32,7 @@ namespace Dopamine.Services.Dialog
 
             WindowUtils.CenterWindow(this);
         }
-  
+
         private void ButtonOK_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;

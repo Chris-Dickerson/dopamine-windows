@@ -8,12 +8,12 @@ namespace Dopamine.Services.Provider
         public string Name { get; set; }
         public string Url { get; set; }
         public string Separator { get; set; }
-  
+
         public SearchProvider()
         {
             this.Id = Guid.NewGuid().ToString();
         }
-     
+
         public override string ToString()
         {
             return this.Name;

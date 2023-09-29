@@ -171,7 +171,10 @@ namespace Dopamine.Services.Appearance
         private IntPtr WndProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
 
         {
-            if (!this.followWindowsColor) return IntPtr.Zero;
+            if (!this.followWindowsColor)
+            {
+                return IntPtr.Zero;
+            }
 
             if (msg == WM_DWMCOLORIZATIONCOLORCHANGED)
             {

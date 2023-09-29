@@ -24,20 +24,20 @@ namespace Dopamine.Services.Entities
 
         public string DisplayName
         {
-            get { return this.displayName; }
-            set { SetProperty<string>(ref this.displayName, value); }
+            get => this.displayName;
+            set => SetProperty<string>(ref this.displayName, value);
         }
 
         public string Name
         {
-            get { return this.name; }
-            set { SetProperty<string>(ref this.name, value); }
+            get => this.name;
+            set => SetProperty<string>(ref this.name, value);
         }
 
         public SmartPlaylistRuleFieldDataType DataType
         {
-            get { return this.dataType; }
-            set { SetProperty<SmartPlaylistRuleFieldDataType>(ref this.dataType, value); }
+            get => this.dataType;
+            set => SetProperty<SmartPlaylistRuleFieldDataType>(ref this.dataType, value);
         }
 
         public override string ToString()

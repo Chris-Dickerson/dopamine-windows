@@ -19,12 +19,12 @@ namespace Dopamine.Services.Entities
         public string SafePath => this.folder.SafePath;
 
         public long FolderId => this.folder.FolderID;
-       
+
         public string Directory => System.IO.Path.GetFileName(this.folder.Path);
 
         public bool ShowInCollection
         {
-            get { return this.folder.ShowInCollection == 1 ? true : false; }
+            get => this.folder.ShowInCollection == 1 ? true : false;
 
             set
             {
@@ -50,7 +50,7 @@ namespace Dopamine.Services.Entities
 
         public override string ToString()
         {
-            return this.Directory; 
+            return this.Directory;
         }
     }
 }

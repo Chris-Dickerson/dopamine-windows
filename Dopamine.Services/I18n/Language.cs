@@ -7,25 +7,25 @@ namespace Dopamine.Services.I18n
         private string code;
         private string name;
         private Dictionary<string, string> texts;
-   
+
         public string Code
         {
-            get { return this.code; }
-            set { this.code = value; }
+            get => this.code;
+            set => this.code = value;
         }
 
         public string Name
         {
-            get { return this.name; }
-            set { this.name = value; }
+            get => this.name;
+            set => this.name = value;
         }
 
         public Dictionary<string, string> Texts
         {
-            get { return this.texts; }
-            set { this.texts = value; }
+            get => this.texts;
+            set => this.texts = value;
         }
-   
+
         public override string ToString()
         {
             return this.Name;

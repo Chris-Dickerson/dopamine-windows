@@ -1,10 +1,10 @@
-﻿using System;
-using Digimezzo.Foundation.Core.Settings;
+﻿using Digimezzo.Foundation.Core.Settings;
 using Digimezzo.Foundation.Core.Utils;
 using Dopamine.Core.Utils;
 using Dopamine.Data;
 using Dopamine.Services.Collection;
 using Dopamine.Services.Dialog;
+using Dopamine.Services.Folders;
 using Dopamine.Services.I18n;
 using Dopamine.Services.Indexing;
 using Dopamine.Services.Metadata;
@@ -14,11 +14,11 @@ using Dopamine.Services.Search;
 using Dopamine.Views.Common;
 using Prism.Commands;
 using Prism.Events;
+using Prism.Ioc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Prism.Ioc;
-using Dopamine.Services.Folders;
 
 namespace Dopamine.ViewModels.Common.Base
 {
@@ -128,7 +128,7 @@ namespace Dopamine.ViewModels.Common.Base
             this.playbackService.PlaybackPaused += (_, __) => this.ShowPlayingTrackAsync();
             this.playbackService.PlaybackResumed += (_, __) => this.ShowPlayingTrackAsync();
             this.playbackService.PlaybackStopped += (_, __) => this.ShowPlayingTrackAsync();
-            this.playbackService.PlaybackSuccess += (_,__) => this.ShowPlayingTrackAsync();
+            this.playbackService.PlaybackSuccess += (_, __) => this.ShowPlayingTrackAsync();
             this.collectionService.CollectionChanged += async (_, __) => await this.FillListsAsync(); // Refreshes the lists when the Collection has changed
             this.foldersService.FoldersChanged += async (_, __) => await this.FillListsAsync(); // Refreshes the lists when marked folders have changed
             this.indexingService.RefreshLists += async (_, __) => await this.FillListsAsync(); // Refreshes the lists when the indexer has finished indexing
@@ -202,10 +202,10 @@ namespace Dopamine.ViewModels.Common.Base
                 }
 
                 this.dialogService.ShowNotification(
-                    0xe711, 
-                    16, 
-                    ResourceUtils.GetString("Language_Error"), 
-                    message, 
+                    0xe711,
+                    16,
+                    ResourceUtils.GetString("Language_Error"),
+                    message,
                     ResourceUtils.GetString("Language_Ok"), false, string.Empty);
             }
 
@@ -217,7 +217,7 @@ namespace Dopamine.ViewModels.Common.Base
             if (this.CheckAllSelectedFilesExist(paths))
             {
                 FileInformation view = this.container.Resolve<FileInformation>();
-                view.DataContext = this.container.Resolve<Func<string,FileInformationViewModel>>()(paths.First());
+                view.DataContext = this.container.Resolve<Func<string, FileInformationViewModel>>()(paths.First());
 
                 this.dialogService.ShowCustomDialog(
                     0xe8d6,

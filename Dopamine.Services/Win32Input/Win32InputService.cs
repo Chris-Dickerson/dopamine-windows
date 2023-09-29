@@ -1,7 +1,6 @@
 ﻿using Digimezzo.Foundation.Core.Logging;
 using Digimezzo.Foundation.Core.Settings;
 using Dopamine.Services.Playback;
-using Dopamine.Services.Win32Input;
 using System;
 
 namespace Dopamine.Services.Win32Input
@@ -64,15 +63,9 @@ namespace Dopamine.Services.Win32Input
 #pragma warning disable CS0162 // Unreachable code detected
             this.RemoveEventHandlers();
 
-            if (this.lowLevelManager != null)
-            {
-                this.lowLevelManager.Unhook();
-            }
+            this.lowLevelManager?.Unhook();
 
-            if (this.appCommandManager != null)
-            {
-                this.appCommandManager.Unhook();
-            }
+            this.appCommandManager?.Unhook();
 #pragma warning restore CS0162 // Unreachable code detected
         }
 

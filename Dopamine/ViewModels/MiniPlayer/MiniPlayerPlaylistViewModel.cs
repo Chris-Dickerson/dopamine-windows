@@ -1,5 +1,5 @@
-﻿using Dopamine.ViewModels.Common.Base;
-using Dopamine.Services.Playback;
+﻿using Dopamine.Services.Playback;
+using Dopamine.ViewModels.Common.Base;
 
 namespace Dopamine.ViewModels.MiniPlayer
 {

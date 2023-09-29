@@ -15,13 +15,13 @@ namespace Dopamine.Services.WindowsIntegration
         private ManagementEventWatcher tabletModeWatcher;
         private ManagementEventWatcher systemUsesLightThemeWatcher;
         private bool isStartedFromExplorer;
-    
+
         public WindowsIntegrationService(IPlaybackService playbackService)
         {
             this.playbackService = playbackService;
             this.isStartedFromExplorer = Environment.GetCommandLineArgs().Length > 1;
 
-            if(SettingsClient.Get<bool>("Playback", "PreventSleepWhilePlaying"))
+            if (SettingsClient.Get<bool>("Playback", "PreventSleepWhilePlaying"))
             {
                 this.EnableSleepPrevention();
             }
@@ -226,7 +226,7 @@ namespace Dopamine.Services.WindowsIntegration
             {
                 LogClient.Error("Failed to disable sleep. Exception: {0}", ex.Message);
             }
-           
+
         }
 
         private void RestoreSleep()

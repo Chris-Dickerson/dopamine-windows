@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Digimezzo.Foundation.Core.Utils;
+using System;
 using System.Windows;
-using Digimezzo.Foundation.Core.Utils;
 
 namespace Dopamine.Core.Base
 {

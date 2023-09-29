@@ -1,7 +1,7 @@
 ﻿using CSCore;
 using NVorbis;
-using System.IO;
 using System;
+using System.IO;
 
 namespace Dopamine.Core.Audio
 {
@@ -34,28 +34,13 @@ namespace Dopamine.Core.Audio
         #endregion
 
         #region ISampleSource
-        public bool CanSeek
-        {
-            get
-            {
-                return this.stream.CanSeek;
-            }
-        }
+        public bool CanSeek => this.stream.CanSeek;
 
-        public WaveFormat WaveFormat
-        {
-            get
-            {
-                return this.waveFormat;
-            }
-        }
+        public WaveFormat WaveFormat => this.waveFormat;
 
         public long Position
         {
-            get
-            {
-                return Convert.ToInt64(this.vorbisReader.DecodedTime.TotalSeconds * this.vorbisReader.SampleRate * this.vorbisReader.Channels);
-            }
+            get => Convert.ToInt64(this.vorbisReader.DecodedTime.TotalSeconds * this.vorbisReader.SampleRate * this.vorbisReader.Channels);
 
             set
             {
@@ -68,13 +53,7 @@ namespace Dopamine.Core.Audio
             }
         }
 
-        public long Length
-        {
-            get
-            {
-                return Convert.ToInt64(this.vorbisReader.TotalTime.TotalSeconds * this.waveFormat.SampleRate * this.waveFormat.Channels);
-            }
-        }
+        public long Length => Convert.ToInt64(this.vorbisReader.TotalTime.TotalSeconds * this.waveFormat.SampleRate * this.waveFormat.Channels);
 
         public int Read(float[] buffer, int offset, int count)
         {

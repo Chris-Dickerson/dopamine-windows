@@ -75,13 +75,7 @@ namespace Dopamine.Core.Api.Lyrics
             return lyrics;
         }
 
-        public string SourceName
-        {
-            get
-            {
-                return "MetroLyrics";
-            }
-        }
+        public string SourceName => "MetroLyrics";
 
         /// <summary>
         /// Searches for lyrics for the given artist and title
@@ -97,7 +91,11 @@ namespace Dopamine.Core.Api.Lyrics
 
             using (var client = new HttpClient())
             {
-                if (this.timeoutSeconds > 0) client.Timeout = TimeSpan.FromSeconds(this.timeoutSeconds);
+                if (this.timeoutSeconds > 0)
+                {
+                    client.Timeout = TimeSpan.FromSeconds(this.timeoutSeconds);
+                }
+
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 var response = await client.GetAsync(uri);
                 result = await response.Content.ReadAsStringAsync();

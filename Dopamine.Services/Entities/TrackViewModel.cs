@@ -143,11 +143,11 @@ namespace Dopamine.Services.Entities
 
         public int Rating
         {
-            get { return NumberUtils.ConvertToInt32(this.Track.Rating); }
+            get => NumberUtils.ConvertToInt32(this.Track.Rating);
             set
             {
                 // Update the UI
-                this.Track.Rating = (long?)value;
+                this.Track.Rating = value;
                 this.RaisePropertyChanged(nameof(this.Rating));
 
                 // Update Rating in the database
@@ -157,7 +157,7 @@ namespace Dopamine.Services.Entities
 
         public bool Love
         {
-            get { return this.Track.Love.HasValue && this.Track.Love.Value != 0 ? true : false; }
+            get => this.Track.Love.HasValue && this.Track.Love.Value != 0 ? true : false;
             set
             {
                 // Update the UI
@@ -174,25 +174,25 @@ namespace Dopamine.Services.Entities
 
         public bool IsPlaying
         {
-            get { return this.isPlaying; }
-            set { SetProperty<bool>(ref this.isPlaying, value); }
+            get => this.isPlaying;
+            set => SetProperty<bool>(ref this.isPlaying, value);
         }
 
         public bool IsPaused
         {
-            get { return this.isPaused; }
-            set { SetProperty<bool>(ref this.isPaused, value); }
+            get => this.isPaused;
+            set => SetProperty<bool>(ref this.isPaused, value);
         }
 
         public bool ShowTrackNumber
         {
-            get { return this.showTrackNumber; }
-            set { SetProperty<bool>(ref this.showTrackNumber, value); }
+            get => this.showTrackNumber;
+            set => SetProperty<bool>(ref this.showTrackNumber, value);
         }
 
         public void UpdateVisibleRating(int rating)
         {
-            this.Track.Rating = (long?)rating;
+            this.Track.Rating = rating;
             this.RaisePropertyChanged(nameof(this.Rating));
         }
 
@@ -225,7 +225,7 @@ namespace Dopamine.Services.Entities
 
         public void UpdateTrack(Track track)
         {
-            if(track == null)
+            if (track == null)
             {
                 return;
             }

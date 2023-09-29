@@ -19,18 +19,18 @@ namespace Dopamine.Views.Common
 
             set { SetValue(IconSizeProperty, value); }
         }
-     
+
         public CoverArtControl()
         {
             InitializeComponent();
         }
-    
+
         private void ThisControl_Loaded(object sender, RoutedEventArgs e)
         {
             this.IconSize = Convert.ToDouble(Convert.ToInt32(this.ActualWidth / 2)); // We want this to be a rounded value
 
         }
-  
+
         private void ThisControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             this.IconSize = Convert.ToDouble(Convert.ToInt32(this.ActualWidth / 2)); // We want this to be a rounded value

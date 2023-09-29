@@ -1,7 +1,7 @@
-﻿using Digimezzo.Foundation.Core.Logging;
-using Dopamine.Views.Base;
+﻿using CommonServiceLocator;
+using Digimezzo.Foundation.Core.Logging;
 using Dopamine.Services.Playback;
-using CommonServiceLocator;
+using Dopamine.Views.Base;
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -11,10 +11,10 @@ namespace Dopamine.Views.Common
     public partial class HorizontalVolumeControls : VolumeControlViewBase
     {
         private IPlaybackService playBackService;
-      
+
         public static readonly DependencyProperty ShowPercentProperty = DependencyProperty.Register("ShowPercent", typeof(bool), typeof(HorizontalVolumeControls), new PropertyMetadata(true));
         public static readonly DependencyProperty SliderLengthProperty = DependencyProperty.Register("SliderLength", typeof(double), typeof(HorizontalVolumeControls), new PropertyMetadata(100.0));
-    
+
         public bool ShowPercent
         {
             get { return Convert.ToBoolean(GetValue(ShowPercentProperty)); }
@@ -28,7 +28,7 @@ namespace Dopamine.Views.Common
 
             set { SetValue(SliderLengthProperty, value); }
         }
-   
+
         public HorizontalVolumeControls()
         {
             InitializeComponent();

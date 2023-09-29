@@ -66,42 +66,27 @@ namespace Dopamine.Services.Entities
 
         public long? DateAdded
         {
-            get { return this.dateAdded; }
-            set
-            {
-                SetProperty<long?>(ref this.dateAdded, value);
-            }
+            get => this.dateAdded;
+            set => SetProperty<long?>(ref this.dateAdded, value);
         }
 
         public long? DateFileCreated
         {
-            get { return this.dateFileCreated; }
-            set
-            {
-                SetProperty<long?>(ref this.dateFileCreated, value);
-            }
+            get => this.dateFileCreated;
+            set => SetProperty<long?>(ref this.dateFileCreated, value);
         }
 
         public double Opacity { get; set; }
 
-        public bool HasCover
-        {
-            get { return !string.IsNullOrEmpty(this.artworkPath); }
-        }
+        public bool HasCover => !string.IsNullOrEmpty(this.artworkPath);
 
-        public bool HasTitle
-        {
-            get { return !string.IsNullOrEmpty(this.AlbumTitle); }
-        }
+        public bool HasTitle => !string.IsNullOrEmpty(this.AlbumTitle);
 
-        public string ToolTipYear
-        {
-            get { return !string.IsNullOrEmpty(this.year) ? "(" + this.year + ")" : string.Empty; }
-        }
+        public string ToolTipYear => !string.IsNullOrEmpty(this.year) ? "(" + this.year + ")" : string.Empty;
 
         public string Year
         {
-            get { return this.year; }
+            get => this.year;
             set
             {
                 SetProperty<string>(ref this.year, value);
@@ -111,16 +96,13 @@ namespace Dopamine.Services.Entities
 
         public long SortYear
         {
-            get { return this.sortYear; }
-            set
-            {
-                SetProperty<long>(ref this.sortYear, value);
-            }
+            get => this.sortYear;
+            set => SetProperty<long>(ref this.sortYear, value);
         }
 
         public string AlbumTitle
         {
-            get { return this.albumTitle; }
+            get => this.albumTitle;
             set
             {
                 SetProperty<string>(ref this.albumTitle, value);
@@ -130,19 +112,19 @@ namespace Dopamine.Services.Entities
 
         public string AlbumArtist
         {
-            get { return this.albumArtist; }
-            set { SetProperty<string>(ref this.albumArtist, value); }
+            get => this.albumArtist;
+            set => SetProperty<string>(ref this.albumArtist, value);
         }
 
         public IList<string> AlbumArtists
         {
-            get { return this.albumArtists; }
-            set { SetProperty<IList<string>>(ref this.albumArtists, value); }
+            get => this.albumArtists;
+            set => SetProperty<IList<string>>(ref this.albumArtists, value);
         }
 
         public string ArtworkPath
         {
-            get { return this.artworkPath; }
+            get => this.artworkPath;
             set
             {
                 SetProperty<string>(ref this.artworkPath, value);
@@ -152,14 +134,14 @@ namespace Dopamine.Services.Entities
 
         public string MainHeader
         {
-            get { return this.mainHeader; }
-            set { SetProperty<string>(ref this.mainHeader, value); }
+            get => this.mainHeader;
+            set => SetProperty<string>(ref this.mainHeader, value);
         }
 
         public string SubHeader
         {
-            get { return this.subHeader; }
-            set { SetProperty<string>(ref this.subHeader, value); }
+            get => this.subHeader;
+            set => SetProperty<string>(ref this.subHeader, value);
         }
 
         public override string ToString()

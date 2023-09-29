@@ -40,7 +40,7 @@ namespace Dopamine.Core.Api.Lyrics
             this.info = info;
             this.enableTLyric = SettingsClient.Get<string>("Appearance", "Language") == "ZH-CN";
 
-            httpClient = new HttpClient(new HttpClientHandler() {AutomaticDecompression = DecompressionMethods.GZip})
+            httpClient = new HttpClient(new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip })
             {
                 BaseAddress = new Uri(apiRootUrl)
             };

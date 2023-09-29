@@ -4,7 +4,6 @@ using Dopamine.Core.Audio;
 using Dopamine.Core.Base;
 using Dopamine.Core.IO;
 using Dopamine.Core.Utils;
-using Dopamine.Services.Equalizer;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -31,7 +30,7 @@ namespace Dopamine.Services.Equalizer
                 Directory.CreateDirectory(Path.Combine(this.equalizerSubDirectory));
             }
         }
-     
+
         public async Task<EqualizerPreset> GetSelectedPresetAsync()
         {
             var presets = await this.GetPresetsAsync();
@@ -39,7 +38,7 @@ namespace Dopamine.Services.Equalizer
             string selectedPresetName = SettingsClient.Get<string>("Equalizer", "SelectedPreset");
             EqualizerPreset selectedPreset = presets.Select((p) => p).Where((p) => p.Name == selectedPresetName).FirstOrDefault();
 
-            if(selectedPreset == null)
+            if (selectedPreset == null)
             {
                 selectedPreset = new EqualizerPreset(Defaults.ManualPresetName, false);
             }
@@ -61,7 +60,10 @@ namespace Dopamine.Services.Equalizer
             {
                 // Give priority to built-in presets. If the user messed up and created a custom preset 
                 // file which has the same name as a built-in preset file, the custom file is ignored.
-                if (!presets.Contains(preset)) presets.Add(preset);
+                if (!presets.Contains(preset))
+                {
+                    presets.Add(preset);
+                }
             }
 
             // Sort the presets
@@ -74,7 +76,7 @@ namespace Dopamine.Services.Equalizer
 
             return presets;
         }
-      
+
         private async Task<List<EqualizerPreset>> GetBuiltInPresetsAsync()
         {
             var builtinEqualizerPresets = new List<EqualizerPreset>();
@@ -137,7 +139,10 @@ namespace Dopamine.Services.Equalizer
                 {
                     string line = reader.ReadLine();
                     double value;
-                    if (double.TryParse(line, NumberStyles.Number, CultureInfo.InvariantCulture, out value)) bandValuesList.Add(value);
+                    if (double.TryParse(line, NumberStyles.Number, CultureInfo.InvariantCulture, out value))
+                    {
+                        bandValuesList.Add(value);
+                    }
                 }
 
                 preset.Load(bandValuesList.ToArray());

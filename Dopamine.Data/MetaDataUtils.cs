@@ -32,7 +32,9 @@ namespace Dopamine.Data
                 List<string> values = new List<string>(valuesEnumer);
 
                 if ((values.Count == 0))
+                {
                     return null;
+                }
 
                 foreach (string unsplittableValue in unsplittableValues)
                 {
@@ -58,7 +60,10 @@ namespace Dopamine.Data
                     }
                 }
 
-                if (allEqual) return i;
+                if (allEqual)
+                {
+                    return i;
+                }
             }
 
             return -1;
@@ -67,10 +72,16 @@ namespace Dopamine.Data
         public static string Join(string separator, IEnumerable values)
         {
 
-            if (values == null) return string.Empty;
+            if (values == null)
+            {
+                return string.Empty;
+            }
 
             IEnumerator enumer = values.GetEnumerator();
-            if (!enumer.MoveNext()) return string.Empty;
+            if (!enumer.MoveNext())
+            {
+                return string.Empty;
+            }
 
             var result = new StringBuilder();
 
@@ -95,7 +106,9 @@ namespace Dopamine.Data
             int index = IndexOf<string, string>(valueList, parts, StringComparer.InvariantCultureIgnoreCase);
 
             if (index == -1)
+            {
                 return;
+            }
 
             string[] origParts = new string[parts.Count];
 
